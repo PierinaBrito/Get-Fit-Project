@@ -1,19 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import "../../styles/component/navbar.css";
+import { FiMenu, FiX } from "react-icons/fi";
 
-export const Navbar = () => {
+export const Navbar = ({ navbarLinks }) => {
+	const [menuClicked, setMenuClicked] = useState(false);
+  
+	const toggleMenuClick = () => {
+	  setMenuClicked(!menuClicked);
+	};
+  
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-			</div>
-		</nav>
+	  <nav className="navbar">
+		<span className="navbar_logo">GET FIT</span>
+  
+		{menuClicked ? (
+		  <FiMenu size={25} className="navbar_menu" onClick={toggleMenuClick} />
+		) : (
+		  <FiX size={25} className="navbar_menu" onClick={toggleMenuClick} />
+		)}
+  
+		<ul
+		  className={
+			menuClicked ? "navbar_list" : "navbar_list navbar_list--active"
+		  }
+		>
+		  {navbarLinks.map((item) => {
+			return (
+			  <li className="navbar_item" key={item.title}>
+				<a className="navbar_link" href={item.url}>
+				  {item.title}
+				</a>
+			  </li>
+			);
+		  })}
+		</ul>
+	  </nav>
 	);
 };
