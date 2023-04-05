@@ -3,10 +3,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 //include your index.scss file into the bundle
-import "../styles/App.css";
+import "../styles/index.css";
 
 //import your own components
-import App from "./App";
+import Layout from "./layout.js";
 
 //render your react application
-ReactDOM.render(<App />, document.querySelector("#app"));
+ReactDOM.render(<Layout />, document.querySelector("#app"));
