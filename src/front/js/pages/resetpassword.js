@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../../styles/register.scss";
+import React, { useState, useContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Context } from "../store/appContext";
+import "../../styles/pages/signup.css";
 
-export const Resetpassword = () => {
+export const ResetPassword = () => {
   return (
     <div className="container">
       <div className="row">

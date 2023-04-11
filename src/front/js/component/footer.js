@@ -63,23 +63,24 @@ export const Footer = () => {
             <div className="Col md-3 lg-2 xl-2">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="#!" className="text-reset">
-                  Register
+                <a
+                  href="https://3000-parrajuanpa-proyectofin-hmsmcsanbil.ws-us93.gitpod.io/signup"
+                  className="text-reset"
+                >
+                  Sign Up
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a
+                  href="https://3000-parrajuanpa-proyectofin-hmsmcsanbil.ws-us93.gitpod.io/login"
+                  className="text-reset"
+                >
                   Log In
                 </a>
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  Personal Trainer
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Help
+                  Training
                 </a>
               </p>
             </div>

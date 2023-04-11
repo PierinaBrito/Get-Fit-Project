@@ -43,12 +43,12 @@ export const Navbar = ({ props, imageSrc }) => {
             </Link>
           </div>
           <div className="col-md-3">
-            <Link to="/courses">
+            <Link to="/training">
               <h4 className="text-dark">Training</h4>
             </Link>
           </div>
           <div className="col-md-3">
-            <Link to="/Information">
+            <Link to="/contact">
               <h4 className="text-dark">Contact</h4>
             </Link>
           </div>

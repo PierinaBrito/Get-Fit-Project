@@ -41,8 +41,7 @@ export const Signup = () => {
         method: "POST",
         body: JSON.stringify(body),
         headers: {
-          "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "https://3000-magenta-blackbird-yg8iuj4t.ws-us04.gitpod.io/*"
+          "Content-Type": "application/json"
         },
       }
     )
@@ -107,6 +106,17 @@ export const Signup = () => {
                   placeholder="Enter password"
                 />
               </div>
+
+              <div className="form-group col-md-12">
+								<label htmlFor="exampleInputID">ID</label>
+								<input
+									onChange={e => setUser_id(e.target.value)}
+									type="text"
+									className="form-control"
+									id="exampleInputID"
+									placeholder="ID number"
+								/>
+							</div>
 
               <div className="form-group col-md-12">
                 <label htmlFor="exampleInputDirection">Address</label>

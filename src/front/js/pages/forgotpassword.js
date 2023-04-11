@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
-import "../../styles/register.scss";
+import "../../styles/pages/signup.css";
 
-export const Forgotpassword = () => {
+export const ForgotPassword = () => {
   // const [email, setEmail] = useState("");
   //
   // const handleSubmit = e => {
   //
   // 	fetch(
-  // 		("https://3001-green-turtle-maithtsj.ws-us03.gitpod.io/api/user",
+  // 		("https://3001-parrajuanpa-proyectofin-hmsmcsanbil.ws-us93.gitpod.io/api/login",
   // 		{
   // 			method: "PUT",
   // 			body: JSON.stringify(body),
