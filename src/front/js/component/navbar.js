@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../styles/component/navbar.css";
 import {
   Dropdown,
   DropdownToggle,
@@ -6,8 +7,8 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import "../../styles/pages/home.css";
-import ".//../../img/home/AdobeStock5.jpeg";
+// import "../../styles/pages/home.css";
+// import ".//../../img/home/AdobeStock5.jpeg";
 
 export const Navbar = ({ props, imageSrc }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

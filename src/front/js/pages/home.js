@@ -11,7 +11,7 @@ import fit_05 from "../../img/home/AdobeStock5.jpeg";
 import Hero from "../component/hero.js";
 import Slider from "../component/slider.js";
 import { Footer } from "../component/footer.js";
-import { Navbar } from "../component/navbar";
+import Navbar from "../component/navbar.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
