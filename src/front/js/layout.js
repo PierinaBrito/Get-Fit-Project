@@ -6,7 +6,7 @@ import { Home } from "./pages/home";
 import { Training } from "./pages/training";
 import { Info } from "./pages/info";
 import { Demo } from "./pages/demo";
-import { LogIn } from "./pages/login";
+import { Login } from "./pages/login";
 import { Perfil } from "./pages/perfil";
 import { Signup } from "./pages/signup";
 import { ForgotPassword } from "./pages/forgotpassword";
@@ -46,7 +46,7 @@ const Layout = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
-            <Route element={<LogIn />} path="/login" />
+            <Route element={<Login />} path="/login" />
             <Route element={<Perfil />} path="/perfil" />
             <Route element={<Training />} path="/training" />
             <Route element={<Contact />} path="/contact" />
