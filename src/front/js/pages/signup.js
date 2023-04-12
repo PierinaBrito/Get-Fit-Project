@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/pages/signup.css";
@@ -17,39 +17,24 @@ export const Signup = () => {
   const [user_id, setUser_id] = useState("");
   const [auth, setAuth] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
-    const body = [
-      {
-        email: email,
-        id_number: user_id,
-        firstname: user_name,
-        lastname: user_lastname,
-        password: password,
-        address: direction,
-        gender: gender,
-      },
-    ];
-
-    fetch(
-      "https://3001-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/api/user",
-      {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setAuth(true);
-      })
-      .catch((err) => console.log(err));
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await actions.signup({
+      email: email,
+      id_number: user_id,
+      firstname: user_name,
+      lastname: user_lastname,
+      password: password,
+      address: direction,
+      gender: gender
+    });
+    if (response) {
+      navigate("/login");
+    } else {
+      alert("invalid credentials");
+    }
   };
 
   return (
@@ -126,32 +111,16 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-4">
-                <label htmlFor="exampleInputGender" className="radio inline">
-                  Gender:{" "}
-                </label>
-                <br />
+              <div className="form-group col-md-12">
+                <label htmlFor="exampleInputGender">Gender</label>
                 <input
                   onChange={(e) => setGender(e.target.value)}
-                  type="radio"
-                  className="ml-1"
-                  id="exampleInputGender"
-                  name="gender"
-                  value="male"
-                  checked
+                  type="text"
+                  className="form-control"
+                  id="exampleInputDirection"
+                  placeholder="Enter Gender"
+                  value={gender}
                 />
-                Male
-                <label className="radio inline"> </label>
-                <input
-                  onChange={(e) => setGender(e.target.value)}
-                  type="radio"
-                  className="ml-1"
-                  id="exampleInputGender"
-                  name="gender"
-                  value="female"
-                  checked
-                />
-                Female
               </div>
 
               {/* Signup Button */}
