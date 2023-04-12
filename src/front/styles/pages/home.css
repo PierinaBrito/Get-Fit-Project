@@ -1,7 +1,28 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Montserrat", sans-serif;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-style: "Gruppo", bold;
+  color: rgb(173, 177, 177);
+}
+
+body {
+  background-color: rgb(27, 29, 30);
+  font-family: Proxima Nova, serif;
+}
+#navbar {
+  background: rgb(13, 31, 55);
+  font-family: "Permanent Marker";
+  color: black;
+}
+
+#Logo {
+  height: 50%;
+  width: 50%;
+  align-content: center;
+}
+
+#fit_05 {
+  height: 5%;
+  width: 5%;
+}
