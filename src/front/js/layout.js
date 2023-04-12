@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { LogIn } from "./pages/login";
+import { Perfil } from "./pages/perfil";
 import { Signup } from "./pages/signup";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -19,17 +20,17 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
   const navbarLinks = [
     {
-      url: "https://3000-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/",
+      url: "/",
       title: "Home",
     },
     {
-      url: "https://3000-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/signup",
-      title: "Sign Up",
-    },
-    {
-      url: "https://3000-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/login",
+      url: "/login",
       title: "Log In",
     },
+    {
+      url: "/signup",
+      title: "Sign Up",
+    }
   ];
 
   return (
@@ -41,6 +42,7 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<LogIn />} path="/login" />
+            <Route element={<Perfil />} path="/perfil" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
