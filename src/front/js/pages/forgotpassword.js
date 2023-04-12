@@ -4,28 +4,6 @@ import { Context } from "../store/appContext";
 import "../../styles/pages/signup.css";
 
 export const ForgotPassword = () => {
-  // const [email, setEmail] = useState("");
-  //
-  // const handleSubmit = e => {
-  //
-  // 	fetch(
-  // 		("https://3001-parrajuanpa-proyectofin-hmsmcsanbil.ws-us93.gitpod.io/api/login",
-  // 		{
-  // 			method: "PUT",
-  // 			body: JSON.stringify(body),
-  // 			headers: {
-  // 				"Content-Type": "application/json"
-  // 			}
-  // 		})
-  // 			.then(res => res.json())
-  // 			.then(data => {
-  // 				console.log(data);
-  // 				sessionStorage.setItem("my_token", data.token);
-  // 			})
-  // 			.catch(err => console.log(err))
-  // 	);
-  // };
-
   return (
     <div className="container">
       <div className="row">

@@ -4,10 +4,10 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Training } from "./pages/training";
-import { Contact } from "./pages/contact";
+import { Info } from "./pages/info";
 import { Demo } from "./pages/demo";
 
-import { LogIn } from "./pages/login";
+import { Login } from "./pages/login";
 import { Signup } from "./pages/signup";
 import { ForgotPassword } from "./pages/forgotpassword";
 import { ResetPassword } from "./pages/resetpassword";
@@ -16,6 +16,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Contact } from "./component/contact";
 
 //create your first component
 const Layout = () => {
@@ -47,7 +48,7 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Training />} path="/training" />
             <Route element={<Contact />} path="/contact" />
-            <Route element={<LogIn />} path="/login" />
+            <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<ForgotPassword />} path="/forgotpassword" />
             <Route element={<ResetPassword />} path="/resetpassword" />

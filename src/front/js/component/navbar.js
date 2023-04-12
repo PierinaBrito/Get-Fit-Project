@@ -21,10 +21,7 @@ export const Navbar = ({ props, imageSrc }) => {
   };
 
   return (
-    <div
-      className="justify-content-between align-items-center border border-bottom text-light shadow-sm p-3 mb-5 bg-body rounded"
-      id="navbar"
-    >
+    <>
       <div className="row">
         <div className="col-md-12">
           <Link to="/">
@@ -39,17 +36,17 @@ export const Navbar = ({ props, imageSrc }) => {
         <div className="row">
           <div className="col-md-3">
             <Link to="/">
-              <h4 className="text-dark">Home</h4>
+              <h4 className="text-secondary">Home</h4>
             </Link>
           </div>
           <div className="col-md-3">
             <Link to="/training">
-              <h4 className="text-dark">Training</h4>
+              <h4 className="text-secondary">Training</h4>
             </Link>
           </div>
           <div className="col-md-3">
             <Link to="/contact">
-              <h4 className="text-dark">Contact</h4>
+              <h4 className="text-secondary">Contact</h4>
             </Link>
           </div>
           <div className="col-md-3">
@@ -59,7 +56,7 @@ export const Navbar = ({ props, imageSrc }) => {
                 data-toggle="dropdown"
                 aria-expanded={dropdownOpen}
               >
-                <h4 className="text-dark">
+                <h4 className="text-secondary">
                   Profile <i className="fas fa-angle-down" />
                 </h4>
               </DropdownToggle>
@@ -89,6 +86,6 @@ export const Navbar = ({ props, imageSrc }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

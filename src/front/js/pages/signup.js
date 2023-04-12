@@ -23,25 +23,22 @@ export const Signup = () => {
     const body = [
       {
         email: email,
-        user_id: user_id,
-        user_name: user_name,
-        user_lastname: user_lastname,
-        birthday: "10/05/2000",
-        imagen: "image",
+        id_number: user_id,
+        firstname: user_name,
+        lastname: user_lastname,
         password: password,
-        is_active: true,
-        direction: direction,
+        address: direction,
         gender: gender,
       },
     ];
 
     fetch(
-      "https://3001-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/api/token",
+      "https://3001-parrajuanpa-proyectofin-wjjmnfke05w.ws-us93.gitpod.io/api/user",
       {
         method: "POST",
         body: JSON.stringify(body),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
       }
     )
@@ -108,15 +105,15 @@ export const Signup = () => {
               </div>
 
               <div className="form-group col-md-12">
-								<label htmlFor="exampleInputID">ID</label>
-								<input
-									onChange={e => setUser_id(e.target.value)}
-									type="text"
-									className="form-control"
-									id="exampleInputID"
-									placeholder="ID number"
-								/>
-							</div>
+                <label htmlFor="exampleInputID">ID</label>
+                <input
+                  onChange={(e) => setUser_id(e.target.value)}
+                  type="text"
+                  className="form-control"
+                  id="exampleInputID"
+                  placeholder="ID number"
+                />
+              </div>
 
               <div className="form-group col-md-12">
                 <label htmlFor="exampleInputDirection">Address</label>

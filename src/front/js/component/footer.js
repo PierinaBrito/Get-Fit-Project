@@ -13,7 +13,7 @@ import { FaEnvelope, FaGem, FaGoogle } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer bg-dark className="text-center text-lg-start text-muted">
+    <footer className="text-center text-lg-start text-muted">
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div className="me-5 d-none d-lg-block">
           <span>Get connected with us on social networks:</span>
@@ -89,7 +89,7 @@ export const Footer = () => {
 
         <div className="container-text-end text-md-center mt-5">
           <div className="mt-3">
-            <div className="Col md=4" lg="3" xl="3" mx-auto mb-md-0 mb="4">
+            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
                 <FaEnvelope icon="envelope" className="me-3" />
