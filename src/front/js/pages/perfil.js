@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut, Line } from 'react-chartjs-2';
@@ -82,8 +83,12 @@ export const Perfil = () => {
                             <p className="text-muted mb-1">18 años</p>
                             <p className="text-muted mb-4">Masculino <i class="fa-solid fa-mars"></i></p>
                             <div className="d-flex justify-content-center mb-2">
-                                <button type="button" className="btn btn-primary">Registrar mi Dia</button>
-                                <button type="button" className="btn btn-outline-primary ms-1"><i class="fa-solid fa-gear"></i></button>
+                                <Link to="/dia">
+                                  <button type="button" className="btn btn-primary">Registrar mi Dia</button>
+                                </Link>
+                                <Link to="/configuracion">
+                                  <button type="button" to="/configuracion" className="btn btn-outline-primary ms-1"><i class="fa-solid fa-gear"></i></button>
+                                </Link>
                             </div>
                         </div>
                     </div>

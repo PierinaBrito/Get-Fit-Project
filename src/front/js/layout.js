@@ -9,6 +9,8 @@ import { Demo } from "./pages/demo";
 import { Login } from "./pages/login";
 import { Perfil } from "./pages/perfil";
 import { Signup } from "./pages/signup";
+import { Dia } from "./pages/dia";
+import { Configuracion } from "./pages/configuracion";
 import { ForgotPassword } from "./pages/forgotpassword";
 import { ResetPassword } from "./pages/resetpassword";
 import { Single } from "./pages/single";
@@ -51,6 +53,8 @@ const Layout = () => {
             <Route element={<Training />} path="/training" />
             <Route element={<Contact />} path="/contact" />
             <Route element={<Signup />} path="/signup" />
+            <Route element={<Dia />} path="/dia" />
+            <Route element={<Configuracion />} path="/configuracion" />
             <Route element={<ForgotPassword />} path="/forgotpassword" />
             <Route element={<ResetPassword />} path="/resetpassword" />
             <Route element={<Single />} path="/single/:theid" />
