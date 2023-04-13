@@ -16,7 +16,7 @@ export const Dia = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await actions.signup({
+    const response = await actions.dia({
       calorias_ingeridas: calIng,
       calorias_gastadas: calGas,
       horas_ejercicio: hEje,
