@@ -28,7 +28,7 @@ export const Signup = () => {
       lastname: user_lastname,
       password: password,
       address: direction,
-      gender: gender
+      gender: gender,
     });
     if (response) {
       navigate("/login");
@@ -40,11 +40,11 @@ export const Signup = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 register">
+        <div className="col-md-6 register mt-5">
           <form onSubmit={handleSubmit}>
             <h3>Sign Up</h3>
             <div className="d-flex flex-wrap">
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-6 p-3">
                 {/* Form Data */}
                 <label htmlFor="exampleInputFirstName">First name</label>
                 <input
@@ -56,7 +56,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-6 p-3">
                 <label htmlFor="exampleInputLastName">Last name</label>
                 <input
                   onChange={(e) => setLastName(e.target.value)}
@@ -67,7 +67,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-6 p-3">
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +78,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-6">
+              <div className="form-group col-md-6 p-3">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +89,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-12">
+              <div className="form-group col-md-12 p-3">
                 <label htmlFor="exampleInputID">ID</label>
                 <input
                   onChange={(e) => setUser_id(e.target.value)}
@@ -100,7 +100,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-12">
+              <div className="form-group col-md-12 p-3">
                 <label htmlFor="exampleInputDirection">Address</label>
                 <input
                   onChange={(e) => setDirection(e.target.value)}
@@ -111,7 +111,7 @@ export const Signup = () => {
                 />
               </div>
 
-              <div className="form-group col-md-12">
+              <div className="form-group col-md-12 p-3">
                 <label htmlFor="exampleInputGender">Gender</label>
                 <input
                   onChange={(e) => setGender(e.target.value)}
@@ -124,16 +124,16 @@ export const Signup = () => {
               </div>
 
               {/* Signup Button */}
-              <button type="submit" className="btn btn-primary btn-block">
+              <button type="submit" className="btn btn-primary btn-block m-3">
                 Sign up
               </button>
 
-              <div className="col-md-12 d-flex justify-content-between">
+              <div className="col-md-12 d-flex justify-content-between m-3">
                 <p className="cancel  text-left">
                   <a href="/">Cancel</a>
                 </p>
 
-                <p className="forgot-password text-right">
+                <p className="forgot-password text-right m-2">
                   Already registered <a href="login">log in?</a>
                 </p>
               </div>

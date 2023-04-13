@@ -13,13 +13,11 @@ import Slider from "../component/slider.js";
 import { Footer } from "../component/footer.js";
 import Navbar from "../component/navbar.js";
 
-
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="App">
-      {/* <Navbar navbarLinks={navbarLinks} /> */}
       <Hero imageSrc={fit_03} />
       <Slider
         imageSrc={fit_01}
@@ -34,9 +32,6 @@ export const Home = () => {
         }
         flipped={true}
       />
-      {/* <video autoPlay loop muted>
-				<source src={video} type="video/mp4" />
-			</video> */}
     </div>
   );
 };

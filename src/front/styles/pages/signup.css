@@ -2,7 +2,7 @@
   border: 4px solid rgb(13, 31, 55);
   padding: 10px;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: auto;
   min-width: 600px;
   background: rgb(18, 30, 63);
   color: aliceblue;
@@ -14,4 +14,55 @@ h3 {
 
 label {
   font-weight: 500;
+}
+
+/* Color Theme Swatches in Hex */
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-1-hex {
+  color: #bf4e58;
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-2-hex {
+  color: #bf988a;
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-3-hex {
+  color: #595959;
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-4-hex {
+  color: #262626;
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-5-hex {
+  color: #0d0d0d;
+}
+
+/* Color Theme Swatches in RGBA */
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-1-rgba {
+  color: rgba(191, 78, 87, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-2-rgba {
+  color: rgba(191, 151, 137, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-3-rgba {
+  color: rgba(89, 89, 89, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-4-rgba {
+  color: rgba(38, 38, 38, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-5-rgba {
+  color: rgba(12, 12, 12, 1);
+}
+
+/* Color Theme Swatches in HSLA */
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-1-hsla {
+  color: hsla(354, 46, 52, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-2-hsla {
+  color: hsla(16, 29, 64, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-3-hsla {
+  color: hsla(0, 0, 35, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-4-hsla {
+  color: hsla(0, 0, 15, 1);
+}
+.Weightlifter-clapping-hands-and-preparing-for-workout-at-a-gym-5-hsla {
+  color: hsla(0, 0, 5, 1);
 }
