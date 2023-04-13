@@ -10,34 +10,26 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, A
 export const Perfil = () => {
     const { store, actions } = useContext(Context);
     
-    const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    const dataDona = {
+        labels: ['Puntos de Hoy' ],
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [89, 11],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
               'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 255, 255, 0.2)'
             ],
             borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
               'rgba(255, 159, 64, 1)',
+              'rgba(0, 0, 0, 0.2)'
             ],
             borderWidth: 1,
           },
         ],
       };
     
-      const options = {
+      const optionsPuntos = {
         responsive: true,
         plugins: {
           legend: {
@@ -45,31 +37,65 @@ export const Perfil = () => {
           },
           title: {
             display: true,
-            text: 'Chart.js Line Chart',
+            text: "Gráfico a 30 dias de tus puntos.",
           },
         },
       };
       
-      const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-      
+      const labels = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+      const dataPuntosA = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
     
-      const data2 = {
+      const dataPuntos = {
         labels,
         datasets: [
           {
-            label: 'Dataset 1',
-            data: labels.map(() => 1),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            label: 'Tus Puntos',
+            data: dataPuntosA.map((i) => Number(dataPuntosA[i])),
+            borderColor: 'rgba(255, 159, 64)',
+            backgroundColor: 'rgba(255, 159, 64, 0.5)',
           },
           {
-            label: 'Dataset 2',
-            data: labels.map(() => 1),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            label: 'Promedio',
+            data: dataPuntosA.map(() => 1),
+            borderColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
           },
         ],
       };
+
+      const optionsSueno = {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Gráfico a 30 dias de tu sueño.',
+          },
+        },
+      };      
+
+      const dataSuenoA = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+
+      const dataSueno = {
+        labels,
+        datasets: [
+          {
+            label: 'Tus Horas',
+            data: dataSuenoA.map((i) => Number(dataSuenoA[i])),
+            borderColor: 'rgb(26, 82, 118)',
+            backgroundColor: 'rgba(26, 82, 118, 0.5)',
+          },
+          {
+            label: 'Promedio',
+            data: dataSuenoA.map(() => 1),
+            borderColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+          },
+        ],
+      };
+
   return (
     <section>
         <div className="container py-5">
@@ -96,23 +122,23 @@ export const Perfil = () => {
                         <div className="card-body p-0">
                             <ul className="list-group list-group-flush rounded-3">
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <i class="fa-solid fa-weight-scale"></i>
+                                    <p className="m-0"><i class="fa-solid fa-weight-scale"></i> Peso Actual</p>
                                     <p className="mb-0">55 Kg</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fa-solid fa-ruler-vertical"></i>
+                                    <p className="m-0"><i class="fa-solid fa-ruler-vertical"></i> Estatura Actual</p>
                                     <p className="mb-0">1.72 m</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fa-solid fa-egg"></i>
+                                    <p className="m-0"><i class="fa-solid fa-egg"></i> Promedio Calorias Ingeridas</p>
                                     <p className="mb-0">485 cal</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fa-solid fa-fire"></i>
+                                    <p className="m-0"><i class="fa-solid fa-fire"></i> Promedio Calorias Gastadas</p>
                                     <p className="mb-0">563 cal</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fa-solid fa-star"></i>
+                                    <p className="m-0"><i class="fa-solid fa-star"></i> Promedio Puntos</p>
                                     <p className="mb-0">83 ptos</p>
                                 </li>
                             </ul>
@@ -120,19 +146,19 @@ export const Perfil = () => {
                     </div>
                     <div className="card mb-4 mb-lg-0">
                         <div className="card-body text-center">
-                            <Doughnut data={data} />
+                            <Doughnut data={dataDona} />
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-8">
                     <div className="card mb-4">
                         <div className="card-body">
-                            <Line options={options} data={data2} />
+                            <Line options={optionsPuntos} data={dataPuntos} />
                         </div>
                     </div>
                     <div className="card mb-4">
                         <div className="card-body">   
-                            <Line options={options} data={data2} />
+                            <Line options={optionsSueno} data={dataSueno} />
                         </div>
                     </div>
                 </div>
