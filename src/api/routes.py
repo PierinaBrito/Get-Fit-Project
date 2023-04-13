@@ -99,19 +99,3 @@ def cambiar_configuracion():
             
         except Exception as error:
             return jsonify({"msg": f"{error.args[0]}"}), 400
-
-@api.route('/configuracion', methods=['GET'])
-def cambiar_configuracion():
-    edad = Configue.query.filter_by(email=email, password=password).first()
-    peso = request.json.get("peso", None)
-    estatura = request.json.get("estatura", None) 
-
-    else:
-        try: 
-            config=Configue(edad=edad, peso=peso, estatura=estatura)
-            db.session.add(config)
-            db.session.commit()
-            return jsonify({"msg": "Datos Actualizados"}), 200
-            
-        except Exception as error:
-            return jsonify({"msg": f"{error.args[0]}"}), 400
