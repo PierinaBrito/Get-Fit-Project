@@ -22,9 +22,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/login`,
+            "https://3001-parrajuanpa-proyectofin-xrt33hf9rer.ws-us94.gitpod.io/api/login",
             opts
           );
+          {
+            /* `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/login`, */
+          }
           if (!response.ok) {
             console.log(response);
             return false;
@@ -54,9 +57,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/user`,
+            "https://3001-parrajuanpa-proyectofin-xrt33hf9rer.ws-us94.gitpod.io/api/user",
             opts
           );
+          {
+            /* `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/user`, */
+          }
+
           if (!response.ok) {
             console.log(response);
             return false;

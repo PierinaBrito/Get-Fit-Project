@@ -59,31 +59,22 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="col-md-3">
-          <Link to="/training">
-            <h4 className="text-secondary">Training</h4>
-          </Link>
-        </div>
-
         <div className="container-text-center text-md-center mt-5">
           <div className="mt-3">
             <div className="Col md-3 lg-2 xl-2">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="" className="text-reset">
+                <a href="/signup" className="text-reset">
                   Sign Up
                 </a>
               </p>
               <p>
-                <a
-                  href="https://3000-parrajuanpa-proyectofin-hmsmcsanbil.ws-us93.gitpod.io/login"
-                  className="text-reset"
-                >
+                <a href="/login" className="text-reset">
                   Log In
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a href="/training" className="text-reset">
                   Training
                 </a>
               </p>

@@ -46,8 +46,8 @@ export const Navbar = ({ props, imageSrc }) => {
             </Link>
           </div>
           <div className="col-md-3">
-            <Link to="/contact">
-              <h4 className="text-secondary">Contact</h4>
+            <Link to="/about">
+              <h4 className="text-secondary">About Us</h4>
             </Link>
           </div>
           <div className="col-md-3">
