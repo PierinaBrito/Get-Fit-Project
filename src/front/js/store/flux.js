@@ -3,8 +3,14 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       courses: [],
       token: sessionStorage.getItem("token") || null,
+      calorias_ingeridas: "",
+      calorias_gastadas: "",
+      horas_ejercicio: "",
+      horas_sueño: "",
+      scoop_proteina: ""
     },
     actions: {
+      
       login: async (email, password) => {
         console.log(email, password);
         const opts = {
