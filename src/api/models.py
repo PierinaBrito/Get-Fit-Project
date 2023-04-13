@@ -23,6 +23,33 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
+class Valores(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    calorias_ingeridas = db.Column(db.Integer, unique=False, nullable=False)
+    calorias_gastadas = db.Column(db.Integer, unique=False, nullable=False)
+    horas_ejercicio = db.Column(db.Integer, unique=False, nullable=False)
+    horas_sueño = db.Column(db.Integer, unique=False, nullable=False)
+    scoop_proteina = db.Column(db.Integer, unique=False, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    
+class Configue(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    edad = db.Column(db.Integer, unique=False, nullable=False)
+    peso = db.Column(db.Integer, unique=False, nullable=False)
+    estatura = db.Column(db.Integer, unique=False, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    def __repr__(self):
+        return f'<Configue {self.id}>'
+
+    def serialize(self):
+        return {
+            "edad": self.edad,
+            "peso": self.peso,
+            "estatura": self.estatura
+            # do not serialize the password, its a security breach
+        }
+    
     
 #     class Personal_Trainer(db.Model):
 #     __tablename__ = 'Personal_Trainer'

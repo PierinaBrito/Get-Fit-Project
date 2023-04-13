@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut, Line } from 'react-chartjs-2';
@@ -7,15 +7,16 @@ import "../../styles/pages/perfil.css";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, ArcElement, Tooltip, Legend);
 
 
+
 export const Perfil = () => {
     const { store, actions } = useContext(Context);
-    
+    const navigate = useNavigate();
     const dataDona = {
         labels: ['Puntos de Hoy' ],
         datasets: [
           {
             label: '# of Votes',
-            data: [89, 11],
+            data: [store.puntos,store.puntos_negativo],
             backgroundColor: [
               'rgba(255, 159, 64, 0.2)',
               'rgba(255, 255, 255, 0.2)'
@@ -43,7 +44,8 @@ export const Perfil = () => {
       };
       
       const labels = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
-      const dataPuntosA = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+      const dataPuntosA = store.data_puntos;
+      //const dataPuntosB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
     
       const dataPuntos = {
         labels,
@@ -76,7 +78,8 @@ export const Perfil = () => {
         },
       };      
 
-      const dataSuenoA = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+      const dataSuenoA = store.data_sueno;
+      //const dataSuenoB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
 
       const dataSueno = {
         labels,
@@ -95,7 +98,11 @@ export const Perfil = () => {
           },
         ],
       };
-
+  useEffect(() => {
+    if(store.token === null){
+      navigate("/login")
+    }
+  },[store.token]); 
   return (
     <section>
         <div className="container py-5">
@@ -105,9 +112,9 @@ export const Perfil = () => {
                     <div className="card mb-4">
                         <div className="card-body text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" className="rounded-circle img-fluid" id="Avatar" />
-                            <h5 className="my-3">Juan Pablo Parra</h5>
-                            <p className="text-muted mb-1">18 años</p>
-                            <p className="text-muted mb-4">Masculino <i class="fa-solid fa-mars"></i></p>
+                            <h5 className="my-3">{store.nombre} {store.apellido}</h5>
+                            <p className="text-muted mb-1">{store.edad} años</p>
+                            <p className="text-muted mb-4">{store.genero}</p>
                             <div className="d-flex justify-content-center mb-2">
                                 <Link to="/dia">
                                   <button type="button" className="btn btn-primary">Registrar mi Dia</button>
@@ -123,23 +130,23 @@ export const Perfil = () => {
                             <ul className="list-group list-group-flush rounded-3">
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <p className="m-0"><i class="fa-solid fa-weight-scale"></i> Peso Actual</p>
-                                    <p className="mb-0">55 Kg</p>
+                                    <p className="mb-0">{store.peso} Kg</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <p className="m-0"><i class="fa-solid fa-ruler-vertical"></i> Estatura Actual</p>
-                                    <p className="mb-0">1.72 m</p>
+                                    <p className="mb-0">{store.estatura} m</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <p className="m-0"><i class="fa-solid fa-egg"></i> Promedio Calorias Ingeridas</p>
-                                    <p className="mb-0">485 cal</p>
+                                    <p className="m-0"><i class="fa-solid fa-egg"></i> Calorias Ingeridas</p>
+                                    <p className="mb-0">{store.calorias_ingeridas} cal</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <p className="m-0"><i class="fa-solid fa-fire"></i> Promedio Calorias Gastadas</p>
-                                    <p className="mb-0">563 cal</p>
+                                    <p className="m-0"><i class="fa-solid fa-fire"></i> Calorias Gastadas</p>
+                                    <p className="mb-0">{store.alorias_gastadas} cal</p>
                                 </li>
                                 <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                                     <p className="m-0"><i class="fa-solid fa-star"></i> Promedio Puntos</p>
-                                    <p className="mb-0">83 ptos</p>
+                                    <p className="mb-0">{store.p_puntos} ptos</p>
                                 </li>
                             </ul>
                         </div>

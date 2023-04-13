@@ -14,7 +14,7 @@ export const Configuracion = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await actions.signup({
+    const response = await actions.configuracion({
       edad: edad,
       peso: peso,
       estatura: estatura

@@ -108,6 +108,7 @@ export const Signup = () => {
                   className="form-control"
                   id="exampleInputDirection"
                   placeholder="Enter address"
+                  value={direction}
                 />
               </div>
 

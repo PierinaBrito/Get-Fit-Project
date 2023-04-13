@@ -6,8 +6,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       calorias_ingeridas: "",
       calorias_gastadas: "",
       horas_ejercicio: "",
-      horas_sueño: "",
-      scoop_proteina: ""
+      horas_sueno: "",
+      scoop_proteina: "",
+      nombre: "",
+      apellido: "",
+      edad: "",
+      genero:"",
+      peso:"",
+      estatura:"",
+      p_puntos:"",
+      puntos:"",
+      puntos_negativo:"",
+      data_puntos: [],
+      data_sueno: []
     },
     actions: {
       
@@ -15,9 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(email, password);
         const opts = {
           method: "POST",
-          mode: "cors",
           headers: {
-            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
@@ -28,12 +37,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            "https://3001-parrajuanpa-proyectofin-xrt33hf9rer.ws-us94.gitpod.io/api/login",
+            `${process.env.BACKEND_URL}/api/login`,
             opts
           );
-          {
-            /* `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/login`, */
-          }
           if (!response.ok) {
             console.log(response);
             return false;
@@ -53,9 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data);
         const opts = {
           method: "POST",
-          mode: "cors",
           headers: {
-            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
@@ -63,13 +67,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            "https://3001-parrajuanpa-proyectofin-xrt33hf9rer.ws-us94.gitpod.io/api/user",
+            `${process.env.BACKEND_URL}/api/user`,
             opts
           );
-          {
-            /* `https://3001-fuchsia-toucan-q9ozqifl0fb.ws-us93.gitpod.io/api/user`, */
-          }
 
+          if (!response.ok) {
+            console.log(response);
+            return false;
+          }
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+
+      dia: async (data) => {
+        console.log(data);
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/dia`,
+            opts
+          );
+          if (!response.ok) {
+            console.log(response);
+            return false;
+          }
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+
+      configuracion: async (data) => {
+        console.log(data);
+        const opts = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/configuracion`,
+            opts
+          );
           if (!response.ok) {
             console.log(response);
             return false;
