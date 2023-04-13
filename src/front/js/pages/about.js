@@ -7,16 +7,6 @@ import pierina from "../../img/home/pierina.png";
 
 import About_us from "../component/about_us.js";
 
-//import fit_00 from "../../img/home/AdobeStock4.jpeg";
-// import fit_01 from "../../img/home/AdobeStock2.jpeg";
-// import fit_02 from "../../img/home/AdobeStock3.jpeg";
-// import fit_03 from "../../img/home/AdobeStock1.jpeg";
-// import fit_05 from "../../img/home/AdobeStock5.jpeg";
-
-// import Hero from "../component/hero.js";
-// import { Footer } from "../component/footer.js";
-// import Navbar from "../component/navbar.js";
-
 export const About = () => {
   const { store, actions } = useContext(Context);
 
