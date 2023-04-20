@@ -6,13 +6,16 @@ import { Home } from "./pages/home";
 import { About } from "./pages/about";
 import { Training } from "./pages/training";
 import { Demo } from "./pages/demo";
-import { Login } from "./pages/login";
 import { Perfil } from "./pages/perfil";
-import { Signup } from "./pages/signup";
 import { Dia } from "./pages/dia";
 import { Configuracion } from "./pages/configuracion";
+
+import { Signup } from "./pages/signup";
+import { Login } from "./pages/login";
 import { ForgotPassword } from "./pages/forgotpassword";
 import { ResetPassword } from "./pages/resetpassword";
+import Success from "./pages/success";
+
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
@@ -24,7 +27,6 @@ const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
   // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
   const basename = process.env.BASENAME || "";
- 
 
   return (
     <div>
@@ -39,6 +41,7 @@ const Layout = () => {
             <Route element={<Training />} path="/training" />
             <Route element={<About />} path="/about" />
             <Route element={<Signup />} path="/signup" />
+            <Route element={<Success />} path="/success" />
             <Route element={<Dia />} path="/dia" />
             <Route element={<Configuracion />} path="/configuracion" />
             <Route element={<ForgotPassword />} path="/forgotpassword" />
