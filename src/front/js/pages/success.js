@@ -15,12 +15,12 @@ export default function Success() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="success">
       <div className="confettie-wrap" ref={confetiRef}>
         <h1> Nicely done!</h1>
-        <h3>
+        <p>
           You're ready to start using <b> Get Fit App! </b>
-        </h3>
+        </p>
         <Confetti numberOfPieces={200} width={width} height={height} />
       </div>
     </div>
