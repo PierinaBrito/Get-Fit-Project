@@ -31,7 +31,7 @@ export const Signup = () => {
       gender: gender,
     });
     if (response) {
-      navigate("/login");
+      navigate("/success");
     } else {
       alert("invalid credentials");
     }
@@ -140,7 +140,7 @@ export const Signup = () => {
               </div>
             </div>
           </form>
-          {auth ? <Redirect to="/login" /> : null}
+          {auth ? <Redirect to="/success" /> : null}
         </div>
       </div>
     </div>

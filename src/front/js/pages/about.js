@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles//component/about.css";
+import "../../styles/component/about.css";
 
 import juan from "../../img/home/juan.jpg";
 import pierina from "../../img/home/pierina.png";

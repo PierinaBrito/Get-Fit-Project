@@ -14,6 +14,14 @@
   letter-spacing: 2px;
 }
 
+.btn {
+  color: white;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 400px) {
   .App {
     display: flex;
@@ -30,7 +38,7 @@
 
   .confettie-wrap,
   h1,
-  h3 {
+  h4 {
     width: 100%;
     display: flex;
     justify-content: center;
