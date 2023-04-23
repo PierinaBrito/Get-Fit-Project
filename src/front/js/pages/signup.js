@@ -125,7 +125,7 @@ export const Signup = () => {
               </div>
 
               {/* Signup Button */}
-              <button type="submit" className="btn btn-primary btn-block m-3">
+              <button type="submit" className="btn btn-primary m-3">
                 Sign up
               </button>
 

@@ -60,6 +60,13 @@ def create_token():
         access_token = create_access_token(identity=user.id)
         return jsonify({ "token": access_token, "user_id": user.id }), 200
 
+
+
+
+
+
+        
+
 @api.route('/dia', methods=['POST'])
 def registrar_dia():
     calorias_ingeridas = request.json.get("calorias_ingeridas", None)
