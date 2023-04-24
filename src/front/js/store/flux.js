@@ -11,17 +11,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       nombre: "",
       apellido: "",
       edad: "",
-      genero:"",
-      peso:"",
-      estatura:"",
-      p_puntos:"",
-      puntos:"",
-      puntos_negativo:"",
+      genero: "",
+      peso: "",
+      estatura: "",
+      p_puntos: "",
+      puntos: "",
+      puntos_negativo: "",
       data_puntos: [],
-      data_sueno: []
+      data_sueno: [],
     },
     actions: {
-      
       login: async (email, password) => {
         console.log(email, password);
         const opts = {

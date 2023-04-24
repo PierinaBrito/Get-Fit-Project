@@ -1,9 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
-
+import enum
 db = SQLAlchemy()
 
+class Rol(enum.Enum):
+    user="user"
+    trainer="trainer"
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    rol = db.Column(db.Enum(Rol), unique=False, nullable=False)
     firstname = db.Column(db.String(120), unique=False, nullable=False)
     lastname = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -51,49 +55,47 @@ class Configue(db.Model):
         }
     
     
-    class Trainer(db.Model):
-    __tablename__ = 'Personal_Trainer'
-    id_tr = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    trainer_id = db.Column(db.String(120), unique=True, nullable=False)
-    trainer_name = db.Column(db.String(120), unique=False, nullable=False)
-    trainer_lastname = db.Column(db.String(120), unique=False, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    direction = db.Column(db.String(80), unique=False, nullable=False)
-    gender = db.Column(db.String(80), unique=False, nullable=False)
+#     class Trainer(db.Model):
+#         id_tr = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+#         email = db.Column(db.String(120), unique=True, nullable=False)
+#         trainer_id = db.Column(db.String(120), unique=True, nullable=False)
+#         trainer_name = db.Column(db.String(120), unique=False, nullable=False)
+#         trainer_lastname = db.Column(db.String(120), unique=False, nullable=False)
+#         password = db.Column(db.String(80), unique=False, nullable=False)
+#         direction = db.Column(db.String(80), unique=False, nullable=False)
+#         gender = db.Column(db.String(80), unique=False, nullable=False)
 
-    def __repr__(self):
-        return '<Trainer %r>' % self.trainer_name
+#         def __repr__(self):
+#             return '<Trainer %r>' % self.trainer_name
 
-    def serialize_trainer(self):
-        return {
-            "id_tr": self.id_tr,
-            "email": self.email,
-            "trainer_id" : self.trainer_id,
-            "trainer_name" : self.trainer_name,
-            "trainer_lastname" : self.trainer_lastname,
-            "direction" : self.direction,
-            "gender" : self.gender
-            # do not serialize the password, its a security breach
-        }
+#         def serialize_trainer(self):
+#             return {
+#                 "id_tr": self.id_tr,
+#                 "email": self.email,
+#                 "trainer_id" : self.trainer_id,
+#                 "trainer_name" : self.trainer_name,
+#                 "trainer_lastname" : self.trainer_lastname,
+#                 "direction" : self.direction,
+#                 "gender" : self.gender
+#                 # do not serialize the password, its a security breach
+#             }
 
-class Online_Workout(db.Model):
-    __tablename__ = 'Online_Workout'
-    id_ow = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    online_workout_name = db.Column(db.String(120), unique=False, nullable=False)
-    category = db.Column(db.String(120), unique=False, nullable=False)
-    info_detail = db.Column(db.String(9000), unique=False, nullable=False)
-    imagen = db.Column(db.String(120), unique=False, nullable=False)
+# class Online_Workout(db.Model):
+#     id_ow = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+#     online_workout_name = db.Column(db.String(120), unique=False, nullable=False)
+#     category = db.Column(db.String(120), unique=False, nullable=False)
+#     info_detail = db.Column(db.String(9000), unique=False, nullable=False)
+#     imagen = db.Column(db.String(120), unique=False, nullable=False)
 
-    def __repr__(self):
-        return '<Online_Workout %r>' % self.workout_name
+#     def __repr__(self):
+#         return '<Online_Workout %r>' % self.workout_name
 
-    def serialize_online_workout(self):
-        return {
-            "id_ow": self.id_ow,
-            "online_workout_name": self.online_workout_name,
-            "category" : self.category,
-            "info_detail" : self.info_detail,
-            "imagen" : self.imagen
-            # do not serialize the password, its a security breach
-        }
+#     def serialize_online_workout(self):
+#         return {
+#             "id_ow": self.id_ow,
+#             "online_workout_name": self.online_workout_name,
+#             "category" : self.category,
+#             "info_detail" : self.info_detail,
+#             "imagen" : self.imagen
+#             # do not serialize the password, its a security breach
+#         }

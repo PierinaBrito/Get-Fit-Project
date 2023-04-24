@@ -10,18 +10,18 @@ export const Signup = () => {
   const [password, setPassword] = useState("");
   const [user_name, setFirstName] = useState("");
   const [user_lastname, setLastName] = useState("");
-  const [imagen, setImagen] = useState("");
-  const [is_active, setIs_Active] = useState("");
   const [direction, setDirection] = useState("");
   const [gender, setGender] = useState("");
   const [user_id, setUser_id] = useState("");
   const [auth, setAuth] = useState(false);
+  const [rol, setRol] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await actions.signup({
+      rol: rol,
       email: email,
       id_number: user_id,
       firstname: user_name,
@@ -44,8 +44,24 @@ export const Signup = () => {
           <form onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
             <div className="d-flex flex-wrap">
+              <div className="form-group-center col-md-8 p-3">
+                <label htmlFor="exampleInputRol">Tipo de Usuario</label>
+                <select
+                  value={rol}
+                  onChange={(event) => setRol(event.target.value)}
+                  className="form-select"
+                  aria-label="Default select example"
+                >
+                  <option selected>Open this select menu</option>
+                  <option value="">Seleccione tipo de Usuario</option>
+                  <option value="user">Usuario</option>
+                  <option value="trainer">Personal Tariner</option>
+                </select>
+              </div>
+
               <div className="form-group col-md-6 p-3">
                 {/* Form Data */}
+
                 <label htmlFor="exampleInputFirstName">First name</label>
                 <input
                   onChange={(e) => setFirstName(e.target.value)}

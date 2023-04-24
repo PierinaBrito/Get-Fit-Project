@@ -7,6 +7,7 @@ import fit_01 from "../../img/home/AdobeStock2.jpeg";
 import fit_02 from "../../img/home/AdobeStock3.jpeg";
 import fit_03 from "../../img/home/AdobeStock1.jpeg";
 import fit_05 from "../../img/home/AdobeStock5.jpeg";
+import fit_t from "../../img/home/AdobeStock6.jpeg";
 
 import Hero from "../component/hero.js";
 import Slider from "../component/slider.js";
@@ -19,6 +20,13 @@ export const Home = () => {
   return (
     <div className="App">
       <Hero imageSrc={fit_03} />
+      <Slider
+        imageSrc={fit_t}
+        title={"Start your Journey Today!"}
+        subtitle={
+          "Join to Our Fitness Community and Transform your Body and Mind."
+        }
+      />
       <Slider
         imageSrc={fit_01}
         title={"Achieve Your Fitness Goals"}

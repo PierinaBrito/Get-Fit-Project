@@ -18,6 +18,7 @@ api = Blueprint('api', __name__)
 
 @api.route('/user', methods=['POST'])
 def create_user():
+    rol = request.json.get("rol", None)
     email = request.json.get("email", None)
     firstname = request.json.get("firstname", None)
     lastname = request.json.get("lastname", None)
@@ -26,12 +27,12 @@ def create_user():
     gender = request.json.get("gender", None)
     address = request.json.get("address", None) 
 
-    if email is None or firstname is None or lastname is None or  password is None or id_number is None or gender is None or address is None: 
+    if rol is None or email is None or firstname is None or lastname is None or  password is None or id_number is None or gender is None or address is None: 
         return jsonify({"msg": "No enough data"}), 400
 
     else:
         try: 
-            user=User(email=email, firstname=firstname, lastname=lastname, password=password, id_number=id_number, gender=gender, address=address)
+            user=User(rol=rol, email=email, firstname=firstname, lastname=lastname, password=password, id_number=id_number, gender=gender, address=address)
             db.session.add(user)
             db.session.commit()
             return jsonify({"msg": "User created"}), 200

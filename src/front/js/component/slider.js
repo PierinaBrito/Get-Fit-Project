@@ -13,6 +13,17 @@ const Slider = ({ imageSrc, title, subtitle, flipped }) => {
     if (!flipped) {
       return (
         <>
+          <div className="slider_content">
+            <h1 className="slider_title">{title}</h1>
+            <p>{subtitle}</p>
+          </div>
+          <img src={imageSrc} alt="Fit" className="slider_image" />
+        </>
+      );
+    }
+    if (!flipped) {
+      return (
+        <>
           <img src={imageSrc} alt="Fit" className="slider_image" />
           <div className="slider_content">
             <h1 className="slider_title">{title}</h1>
