@@ -1,8 +1,7 @@
 import "../../styles/pages/success.css";
 import Confetti from "react-confetti";
-//import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const Success = () => {
   const [windowDimension, setDimension] = useState({
@@ -20,15 +19,6 @@ export const Success = () => {
       window.removeEventListener("resize", detectSize);
     };
   }, [windowDimension]);
-
-  // const [height, setHeight] = useState("null");
-  // const [width, setWidth] = useState("null");
-  // const confetiRef = useRef("null");
-
-  // // useEffect(() => {
-  //   setHeight(confetiRef.current.clientHeight);
-  //   setWidth(confetiRef.current.clientWidth);
-  // // }, []);
 
   return (
     <>

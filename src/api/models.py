@@ -51,54 +51,49 @@ class Configue(db.Model):
         }
     
     
-#     class Personal_Trainer(db.Model):
-#     __tablename__ = 'Personal_Trainer'
-#     id_t = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-#     email = db.Column(db.String(120), unique=True, nullable=False)
-#     trainer_id = db.Column(db.String(120), unique=True, nullable=False)
-#     trainer_name = db.Column(db.String(120), unique=False, nullable=False)
-#     trainer_lastname = db.Column(db.String(120), unique=False, nullable=False)
-#     password = db.Column(db.String(80), unique=False, nullable=False)
-#     direction = db.Column(db.String(80), unique=False, nullable=False)
-#     gender = db.Column(db.String(80), unique=False, nullable=False)
+    class Trainer(db.Model):
+    __tablename__ = 'Personal_Trainer'
+    id_tr = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    trainer_id = db.Column(db.String(120), unique=True, nullable=False)
+    trainer_name = db.Column(db.String(120), unique=False, nullable=False)
+    trainer_lastname = db.Column(db.String(120), unique=False, nullable=False)
+    password = db.Column(db.String(80), unique=False, nullable=False)
+    direction = db.Column(db.String(80), unique=False, nullable=False)
+    gender = db.Column(db.String(80), unique=False, nullable=False)
 
-#     def __repr__(self):
-#         return '<Personal_Trainer %r>' % self.trainer_name
+    def __repr__(self):
+        return '<Trainer %r>' % self.trainer_name
 
-#     def serialize_tutor(self):
-#         return {
-#             "id_t": self.id_t,
-#             "email": self.email,
-#             "trainer_id" : self.tutor_id,
-#             "trainer_name" : self.tutor_name,
-#             "trainer_lastname" : self.tutor_lastname,
-#             "direction" : self.direction,
-#             "gender" : self.gender
-#             # do not serialize the password, its a security breach
-#         }
+    def serialize_trainer(self):
+        return {
+            "id_tr": self.id_tr,
+            "email": self.email,
+            "trainer_id" : self.trainer_id,
+            "trainer_name" : self.trainer_name,
+            "trainer_lastname" : self.trainer_lastname,
+            "direction" : self.direction,
+            "gender" : self.gender
+            # do not serialize the password, its a security breach
+        }
 
-# class Online_Workout(db.Model):
-#     __tablename__ = 'Online_Workout'
-#     id_ow = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-#     workout_name = db.Column(db.String(120), unique=False, nullable=False)
-#     category = db.Column(db.String(120), unique=False, nullable=False)
-#     info_detail = db.Column(db.String(9000), unique=False, nullable=False)
-#     rating = db.Column(db.Integer, unique=False, nullable=False)
-#     cost = db.Column(db.Integer, unique=False, nullable=False)
-#     trainer_id_fk = db.Column(db.Integer, db.ForeignKey('trainer.id_t'), nullable=True)
-#     trainer_id = db.relationship('Trainer')
+class Online_Workout(db.Model):
+    __tablename__ = 'Online_Workout'
+    id_ow = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    online_workout_name = db.Column(db.String(120), unique=False, nullable=False)
+    category = db.Column(db.String(120), unique=False, nullable=False)
+    info_detail = db.Column(db.String(9000), unique=False, nullable=False)
+    imagen = db.Column(db.String(120), unique=False, nullable=False)
 
-#     def __repr__(self):
-#         return '<Online_Workout %r>' % self.workout_name
+    def __repr__(self):
+        return '<Online_Workout %r>' % self.workout_name
 
-#     def serialize_online_workout(self):
-#         return {
-#             "id_ow": self.id_tt,
-#             "workout_name": self.workout_name,
-#             "category" : self.category,
-#             "info_detail" : self.info_detail,
-#             "rating" : self.rating,
-#             "trainer_id_fk" : self.trainer_id_fk,
-#             "cost" : self.cost 
-#             # do not serialize the password, its a security breach
-#         }
+    def serialize_online_workout(self):
+        return {
+            "id_ow": self.id_ow,
+            "online_workout_name": self.online_workout_name,
+            "category" : self.category,
+            "info_detail" : self.info_detail,
+            "imagen" : self.imagen
+            # do not serialize the password, its a security breach
+        }

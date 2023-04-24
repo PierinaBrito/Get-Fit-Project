@@ -63,6 +63,64 @@ def create_token():
 
 
 
+@api.route('/trainer', methods=['GET', 'POST'])
+def trainer_pva():
+    if request.method == 'GET':
+        gt_get_trainer = Trainer.query.all()
+        all_trainers = list(map(lambda x: x.serialize_trainer(), gt_get_trainers))
+        return jsonify(all_trainers), 200
+    elif request.method == 'POST':
+        request_body = request.get_json()
+        for i in request_body: 
+            insert_trainers = Trainers(
+                            email=i["email"],
+                            trainer_id=i["trainer_id"],
+                            trainer_name=i["trainer_name"],
+                            trainer_lastname=i["trainer_lastname"],
+                            imagen=i["imagen"],
+                            gender=i["gender"])
+            db.session.add(insert_trainers)
+            db.session.commit()
+        return jsonify({"Awesome" : request_body }), 200
+
+@api.route('/trainers/<int:id_tr>', methods=['GET'])
+def trainers_pva_ind(id_tr):
+    gt_get_trainers_pva_ind =  Trainers.query.filter_by(id_tr = id_tr).first()
+    if gt_get_trainer_pva_ind is None:
+        raise APIException('This trainer does not exist', status_code=404)
+    trainer_pva = gt_get_trainer_pva_ind.serialize_trainer()
+    return jsonify(trainer_pva), 200
+
+
+
+@api.route('/online_workout', methods=['GET', 'POST'])
+def online_workout_pva():
+    if request.method == 'GET':
+        gt_get_online_workout = Online_workout.query.all()
+        all_online_workout = list(map(lambda x: x.serialize_online_workout(), gt_get_online_workout))
+        return jsonify(all_online_workout), 200
+    elif request.method == 'POST':
+        request_body = request.get_json()
+        for i in request_body: 
+            insert_online_workout = Online_Workout(
+                            Online_workout_name=i["online_workout_name"],
+                            category=i["category"],
+                            info_detail=i["info_detail"],
+                            imagen=i["imagen"])
+            db.session.add(insert_online_workout)
+            db.session.commit()
+        return jsonify({"Awesome" : request_body }), 200
+
+@api.route('/online_workout/<int:id_ow>', methods=['GET'])
+def online_workout_pva_ind(id_ow):
+    gt_get_online_workout_pva_ind =  Online_workout.query.filter_by(id_ow = id_ow).first()
+    if gt_get_online_workout_pva_ind is None:
+        raise APIException('This online workout does not exist', status_code=401)
+    online_workout_pva = gt_get_online_workout_pva_ind.serialize_online_workout()
+    return jsonify(online_workout_pva), 200
+
+
+
 
 
         
