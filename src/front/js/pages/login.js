@@ -26,9 +26,9 @@ export const Login = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-3 register">
-          <h3>Log In</h3>
+          <h1>Log In</h1>
           <form onSubmit={sendData}>
-            <div className="form-group">
+            <div className="form-group p-3">
               <label htmlFor="exampleInputEmail1">Email address</label>
               <input
                 onChange={(e) => setEmail(e.target.value)}
@@ -39,7 +39,7 @@ export const Login = () => {
                 placeholder="Enter email"
               />
             </div>
-            <div className="form-group">
+            <div className="form-group p-3">
               <label htmlFor="exampleInputPassword1">Password</label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
@@ -51,7 +51,7 @@ export const Login = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group p-3">
               <div className="custom-control custom-checkbox">
                 <input
                   type="checkbox"
@@ -64,13 +64,13 @@ export const Login = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary m-3">
               Log In
             </button>
 
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between m-2">
               <p className="cancel text-left">
-                <a href="/">Cancel</a>
+                <a href="/signup">Create Account</a>
               </p>
 
               <p className="forgot-password text-right">

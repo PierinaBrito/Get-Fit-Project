@@ -42,7 +42,7 @@ export const Signup = () => {
       <div className="row">
         <div className="col-md-6 register mt-5">
           <form onSubmit={handleSubmit}>
-            <h3>Sign Up</h3>
+            <h1>Sign Up</h1>
             <div className="d-flex flex-wrap">
               <div className="form-group col-md-6 p-3">
                 {/* Form Data */}
@@ -130,11 +130,7 @@ export const Signup = () => {
               </button>
 
               <div className="col-md-12 d-flex justify-content-between m-3">
-                <p className="cancel  text-left">
-                  <a href="/">Cancel</a>
-                </p>
-
-                <p className="forgot-password text-right m-2">
+                <p className="forgot-password text-left">
                   Already registered <a href="login">log in?</a>
                 </p>
               </div>
