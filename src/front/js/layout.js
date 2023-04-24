@@ -14,7 +14,7 @@ import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 import { ForgotPassword } from "./pages/forgotpassword";
 import { ResetPassword } from "./pages/resetpassword";
-import Success from "./pages/success";
+import { Success } from "./pages/success";
 
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
