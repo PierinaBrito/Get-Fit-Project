@@ -48,11 +48,11 @@ export const Navbar = ({ props, imageSrc }) => {
               <h4 className="text-secondary">Training</h4>
             </Link>
           </div>
-          <div className="col-md-2">
+          {/* <div className="col-md-2">
             <Link to="/perfil">
               <h4 className="text-secondary">Perfil</h4>
             </Link>
-          </div>
+          </div> */}
           <div className="col-md-2">
             <Link to="/about">
               <h4 className="text-secondary">About Us</h4>
@@ -73,6 +73,11 @@ export const Navbar = ({ props, imageSrc }) => {
                 <DropdownItem header>Actions</DropdownItem>
                 {store.token ? (
                   <div>
+                    <Link to="/perfil">
+                      <DropdownItem className="text-secondary">
+                        Perfil
+                      </DropdownItem>
+                    </Link>
                     <Link to="/resetpassword">
                       <DropdownItem>Change Password</DropdownItem>
                     </Link>

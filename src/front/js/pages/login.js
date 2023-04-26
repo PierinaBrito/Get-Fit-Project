@@ -17,7 +17,7 @@ export const Login = () => {
     event.preventDefault();
     const response = await actions.login(email, password);
     if (response) {
-      navigate("/");
+      navigate("/perfil");
     } else {
       alert("invalid credentials");
     }
