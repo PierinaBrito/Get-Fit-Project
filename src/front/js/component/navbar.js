@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/pages/home.css";
 import {
   Dropdown,
@@ -12,13 +14,14 @@ import { Link } from "react-router-dom";
 
 export const Navbar = ({ props, imageSrc }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  const token = sessionStorage.getItem("my_token");
   const logout = (e) => {
-    sessionStorage.removeItem("my_token");
-    window.location.reload(false);
+    actions.logout();
+    navigate("/login");
   };
 
   return (
@@ -68,14 +71,13 @@ export const Navbar = ({ props, imageSrc }) => {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem header>Actions</DropdownItem>
-                {token ? (
+                {store.token ? (
                   <div>
                     <Link to="/resetpassword">
                       <DropdownItem>Change Password</DropdownItem>
                     </Link>
-                    <Link to="/">
-                      <DropdownItem onClick={logout}>Log out</DropdownItem>
-                    </Link>
+
+                    <DropdownItem onClick={logout}>Log out</DropdownItem>
                   </div>
                 ) : (
                   <div>

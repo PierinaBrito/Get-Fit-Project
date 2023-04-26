@@ -54,6 +54,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
+      logout: () => {
+        console.log("logout");
+        sessionStorage.removeItem("token");
+        setStore({ token: null });
+      },
+
       signup: async (data) => {
         console.log(data);
         const opts = {

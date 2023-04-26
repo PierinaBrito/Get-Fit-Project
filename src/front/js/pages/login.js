@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../../styles/pages/signup.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -22,6 +22,11 @@ export const Login = () => {
       alert("invalid credentials");
     }
   };
+
+  useEffect(() => {
+    if (store.token && store.token != null) navigate("/");
+  }, [store.token]);
+
   return (
     <div className="container">
       <div className="row">
