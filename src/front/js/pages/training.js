@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/component/training.css";
 
-//import juan from "../../img/home/juan.jpg";
-// import pierina from "../../img/home/pierina.png";
 import fit_t from "../../img/home/AdobeStock6.jpeg";
 import fit_o from "../../img/home/AdobeStock7.jpeg";
 import Train from "../component/train.js";

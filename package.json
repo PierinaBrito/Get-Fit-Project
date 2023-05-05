@@ -74,9 +74,10 @@
 	},
 	"dependencies": {
 		"@emailjs/browser": "^3.11.0",
+		"aos": "^2.3.4",
 		"bootstrap": "^5.2.3",
 		"chart.js": "^4.2.1",
-		"faker": "^6.6.6",
+		"faker": "^5.5.3",
 		"prop-types": "^15.6.1",
 		"react": "^16.14.0",
 		"react-bootstrap": "^2.7.2",
@@ -89,6 +90,9 @@
 		"react-polyfills": "0.0.1",
 		"react-rating-stars-component": "^2.2.0",
 		"react-router-dom": "^6.3.0",
-		"reactstrap": "^9.1.9"
+		"reactstrap": "^9.1.9",
+		"redux": "^4.2.1",
+		"video-react": "^0.16.0",
+		"web-vitals": "^3.3.1"
 	}
 }
