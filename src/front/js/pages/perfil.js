@@ -25,9 +25,13 @@ ChartJS.register(
   Legend
 );
 
+
 export const Perfil = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
+  //actions.read_variable_user();
+  let edad = 2023 - store.user.year
+  //console.log(store.user.firstname);
   const dataDona = {
     labels: ["Puntos de Hoy"],
     datasets: [
@@ -90,21 +94,21 @@ export const Perfil = () => {
     "1",
     "0",
   ];
-  const dataPuntosA = store.data_puntos;
-  //const dataPuntosB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+  //const dataPuntosA = store.data_puntos;
+  const dataPuntosB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
 
   const dataPuntos = {
     labels,
     datasets: [
       {
         label: "Tus Puntos",
-        data: dataPuntosA.map((i) => Number(dataPuntosA[i])),
+        data: dataPuntosB.map((i) => Number(dataPuntosB[i])),
         borderColor: "rgba(255, 159, 64)",
         backgroundColor: "rgba(255, 159, 64, 0.5)",
       },
       {
         label: "Promedio",
-        data: dataPuntosA.map(() => 1),
+        data: dataPuntosB.map(() => 1),
         borderColor: "rgba(0, 0, 0, 0.5)",
         backgroundColor: "rgba(0, 0, 0, 0.2)",
       },
@@ -124,21 +128,21 @@ export const Perfil = () => {
     },
   };
 
-  const dataSuenoA = store.data_sueno;
-  //const dataSuenoB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
+  //const dataSuenoA = store.data_sueno;
+  const dataSuenoB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
 
   const dataSueno = {
     labels,
     datasets: [
       {
         label: "Tus Horas",
-        data: dataSuenoA.map((i) => Number(dataSuenoA[i])),
+        data: dataSuenoB.map((i) => Number(dataSuenoB[i])),
         borderColor: "rgb(26, 82, 118)",
         backgroundColor: "rgba(26, 82, 118, 0.5)",
       },
       {
         label: "Promedio",
-        data: dataSuenoA.map(() => 1),
+        data: dataSuenoB.map(() => 1),
         borderColor: "rgba(0, 0, 0, 0.5)",
         backgroundColor: "rgba(0, 0, 0, 0.2)",
       },
@@ -149,6 +153,11 @@ export const Perfil = () => {
       navigate("/login");
     }
   }, [store.token]);
+
+  useEffect(() => {
+    console.log("Traigo  usuario");
+    actions.read_variable_user();
+  },[]);
   return (
     <section>
       <div className="container py-5">
@@ -163,10 +172,10 @@ export const Perfil = () => {
                   id="Avatar"
                 />
                 <h5 className="my-3">
-                  {store.nombre} {store.apellido}
+                  {store.user.firstname} {store.user.lastname}
                 </h5>
-                <p className="text-muted mb-1">{store.edad} años</p>
-                <p className="text-muted mb-4">{store.genero}</p>
+                <p className="text-muted mb-1">{edad} años</p>
+                <p className="text-muted mb-4">{store.user.gender}</p>
                 <div className="d-flex justify-content-center mb-2">
                   <Link to="/dia">
                     <button type="button" className="btn btn-primary">
@@ -192,14 +201,14 @@ export const Perfil = () => {
                     <p className="m-0">
                       <i className="fa-solid fa-weight-scale"></i> Peso Actual
                     </p>
-                    <p className="mb-0">{store.peso} Kg</p>
+                    <p className="mb-0">{store.user.weight} Kg</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <p className="m-0">
                       <i className="fa-solid fa-ruler-vertical"></i> Estatura
                       Actual
                     </p>
-                    <p className="mb-0">{store.estatura} m</p>
+                    <p className="mb-0">{store.user.height} m</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <p className="m-0">

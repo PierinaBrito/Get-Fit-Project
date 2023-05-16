@@ -3,7 +3,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Valores, Configue
+from api.models import db, User, Valores
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -18,6 +18,7 @@ api = Blueprint('api', __name__)
 
 @api.route('/user', methods=['POST'])
 def create_user():
+    print(request.json)
     rol = request.json.get("rol", None)
     email = request.json.get("email", None)
     firstname = request.json.get("firstname", None)
@@ -25,14 +26,17 @@ def create_user():
     password = request.json.get("password", None)
     id_number = request.json.get("id_number", None)
     gender = request.json.get("gender", None)
-    address = request.json.get("address", None) 
+    address = request.json.get("address", None)
+    year = request.json.get("year", None)
+    weight = request.json.get("weight", None)
+    height = request.json.get("height", None)  
 
-    if rol is None or email is None or firstname is None or lastname is None or  password is None or id_number is None or gender is None or address is None: 
+    if rol is None or email is None or firstname is None or lastname is None or  password is None or id_number is None or gender is None or address is None or year is None or weight is None or height is None: 
         return jsonify({"msg": "No enough data"}), 400
 
     else:
         try: 
-            user=User(rol=rol, email=email, firstname=firstname, lastname=lastname, password=password, id_number=id_number, gender=gender, address=address)
+            user=User(rol=rol, email=email, firstname=firstname, lastname=lastname, password=password, id_number=id_number, gender=gender, address=address, year=year, weight=weight, height=height)
             db.session.add(user)
             db.session.commit()
             return jsonify({"msg": "User created"}), 200
@@ -40,6 +44,11 @@ def create_user():
         except Exception as error:
             return jsonify({"msg": f"{error.args[0]}"}), 400
 
+@api.route('/user', methods=['GET'])
+@jwt_required()
+def search_user():
+    get_user = User.query.get(get_jwt_identity())
+    return jsonify(get_user.serialize())
 
 @api.route('/login', methods=['POST'])
 def create_token():

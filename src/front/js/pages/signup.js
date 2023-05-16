@@ -13,6 +13,9 @@ export const Signup = () => {
   const [direction, setDirection] = useState("");
   const [gender, setGender] = useState("");
   const [user_id, setUser_id] = useState("");
+  const [user_year, setUser_year] = useState("");
+  const [user_weight, setUser_weight] = useState("");
+  const [user_height, setUser_height] = useState("");
   const [auth, setAuth] = useState(false);
   const [rol, setRol] = useState("");
 
@@ -29,6 +32,9 @@ export const Signup = () => {
       password: password,
       address: direction,
       gender: gender,
+      year: user_year,
+      weight: user_weight,
+      height: user_height
     });
     if (response) {
       navigate("/success");
@@ -143,7 +149,38 @@ export const Signup = () => {
                   value={gender}
                 />
               </div>
+              <div className="form-group col-md-12 p-3">
+                <label htmlFor="edad">Año de Nacimiento</label>
+                  <input
+                    onChange={(e) => setUser_year(e.target.value)}
+                    type="number"
+                    className="form-control"
+                    id="edad"
+                    placeholder="1998"
+                  />
+              </div>
 
+              <div className="form-group col-md-12 p-3">
+                <label htmlFor="peso">Peso</label>
+                <input
+                  onChange={(e) => setUser_weight(e.target.value)}
+                  type="number"
+                  className="form-control"
+                  id="peso"
+                  placeholder="60 kg"
+                />
+              </div>
+
+              <div className="form-group col-md-12 p-3">
+                <label htmlFor="estatura">Estatura</label>
+                <input
+                  onChange={(e) => setUser_height(e.target.value)}
+                  type="number"
+                  className="form-control"
+                  id="estatura"
+                  placeholder="179 cm"
+                />
+              </div>
               {/* Signup Button */}
               <button type="submit" className="btn btn-primary m-3">
                 Sign up
