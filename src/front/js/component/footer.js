@@ -81,10 +81,14 @@ const Footer = () => {
                     Join Now
                   </Link>
                 </li>
+
                 <li className="footerList flex">
-                  <FiChevronRight className="icon" />
-                  Training
+                  <Link to="/">
+                    <FiChevronRight className="icon" />
+                    Training
+                  </Link>
                 </li>
+
                 <li className="footerList flex">
                   <FiChevronRight className="icon" />
                   Contact

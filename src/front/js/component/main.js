@@ -80,7 +80,7 @@ const Main = () => {
             <h4 className="servTitle">"User"</h4>
             <span className="continent flex">
               <BsStars className="icon" />
-              <span className="name">Explore</span>
+              <span className="name">Login</span>
             </span>
 
             <div className="fees flex">
@@ -100,7 +100,9 @@ const Main = () => {
             </div>
 
             <button className="btn flex">
-              DETAILS <HiClipboardCheck className="icon" />
+              <Link to="/login">
+                DETAILS <HiClipboardCheck className="icon" />
+              </Link>
             </button>
           </div>
         </div>
@@ -165,7 +167,9 @@ const Main = () => {
             </div>
 
             <button className="btn flex">
-              DETAILS <HiClipboardCheck className="icon" />
+              <Link to="/signup">
+                DETAILS <HiClipboardCheck className="icon" />
+              </Link>
             </button>
           </div>
         </div>

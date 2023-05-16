@@ -44,7 +44,7 @@ export const Signup = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6 register mt-5">
+        <div className="col-md-6 register mt-10">
           <form onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
             <div className="d-flex flex-wrap">

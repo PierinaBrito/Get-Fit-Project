@@ -65,11 +65,11 @@ const Navbar = ({ props, imageSrc }) => {
                 Training
               </Link>
             </li>
-            <li className="navItem">
+            {/* <li className="navItem">
               <Link className="navLink" to="/login">
                 Login
               </Link>
-            </li>
+            </li> */}
             <li className="navItem">
               <Link className="navLink" to="/">
                 Contact
