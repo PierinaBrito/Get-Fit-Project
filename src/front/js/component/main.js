@@ -4,10 +4,10 @@ import "../../styles/component/main.css";
 
 import { BsStars } from "react-icons/bs";
 import { HiClipboardCheck } from "react-icons/hi";
-import img2 from "../../img/home/AdobeStock7.jpeg";
-import img3 from "../../img/home/AdobeStock6.jpeg";
-import img4 from "../../img/home/AdobeStock4.jpeg";
-import img5 from "../../img/home/AdobeStock8.jpeg";
+import img2 from "../../img/assets/home/AdobeStock7.jpeg";
+import img3 from "../../img/assets/home/AdobeStock6.jpeg";
+import img4 from "../../img/assets/home/AdobeStock4.jpeg";
+import img5 from "../../img/assets/home/AdobeStock8.jpeg";
 
 import Aos from "aos";
 import "aos/dist/aos.css";

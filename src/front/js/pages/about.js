@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/component/about.css";
 
-import juan from "../../img/home/juan.jpg";
-import pierina from "../../img/home/pierina.png";
+import juan from "../../img/assets/home/juan.jpg";
+import pierina from "../../img/assets/home/pierina.png";
 
 import About_us from "../component/about_us.js";
 

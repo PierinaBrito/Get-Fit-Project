@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "../../styles/component/footer.css";
-import video2 from "../../img/home/video2.mp4";
+import video2 from "../../img/assets/home/video2.mp4";
 import { FiChevronRight, FiSend } from "react-icons/fi";
 import { CgGym } from "react-icons/cg";
 import {

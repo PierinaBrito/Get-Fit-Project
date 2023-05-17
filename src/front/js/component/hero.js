@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
-import '../../styles/component/hero.css';
-import img1  from '../../img/home/AdobeStock1.jpeg';
+import "../../styles/component/hero.css";
+import Dropdown from "react-bootstrap/Dropdown";
+
+import img1 from "../../img/assets/home/AdobeStock1.jpeg";
 
 import { FiFacebook, FiTwitter } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -8,72 +10,74 @@ import { BsListTask, BsSearch } from "react-icons/bs";
 import { TbApps } from "react-icons/tb";
 import { ImLocation2 } from "react-icons/im";
 
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Hero = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
-    useEffect(() => {
-        Aos.init({duration: 2000})
-    },[])
+  return (
+    <section className="hero">
+      <div className="overlay"></div>
+      <img src={img1} type="img/jpeg"></img>
 
+      <div className="heroContent container">
+        <div className="textDiv">
+          <span data-aos="fade-up" className="smallText">
+            Welcome to
+          </span>
 
-    return(
-        <section className="hero">
-            <div className="overlay"></div>
-            <img src={img1} type="img/jpeg"></img>
+          <h1 data-aos="fade-up" className="heroTitle">
+            Get Fit
+          </h1>
+        </div>
 
-            <div className="heroContent container">
-                <div className="textDiv">
+        <div data-aos="fade-up" className="cardDiv grid">
+          <div className="trainersearchInput">
+            <label htmlFor="city">Search a Trainer: </label>
+            <div className="input flex">
+              <input type="text" placeholder="Enter location" />
+              <ImLocation2 className="icon" />
+            </div>
+          </div>
 
-                    <span data-aos="fade-up"
-                    className="smallText">
-                        Welcome to
-                    </span>
+          <div className="dateInput">
+            <label htmlFor="date">Select date: </label>
+            <div className="input flex">
+              <input type="date" />
+            </div>
+          </div>
 
-                    <h1 data-aos="fade-up"
-                    className="heroTitle">
-                        Get Fit
-                    </h1>
-                </div>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Type Of Training
+          </Dropdown.Toggle>
 
-                <div data-aos="fade-up" className="cardDiv grid">
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">Online Consultation</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Online WorkOut</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">In Person Training</Dropdown.Item>
+          </Dropdown.Menu>
 
-                    <div className="trainersearchInput">
-                        <label htmlFor="city">Search a Trainer: </label>
-                        <div className="input flex">
-                            <input type="text" placeholder="Enter location" />
-                            <ImLocation2 className="icon" />
-                        </div>
-                    </div>
+          {/* <div className="priceInput">
+            <div className="label_total flex">
+              <label htmlFor="price">Max price: </label>
+              <h3 className="total">$500</h3>
+            </div>
 
-                    <div className="dateInput">
-                        <label htmlFor="date">Select date: </label>
-                        <div className="input flex">
-                            <input type="date" />
-                        </div>
-                    </div>
+            <div className="input flex">
+              <input type="range" max="500" min="50" />
+            </div>
+          </div> */}
 
-                    <div className="priceInput">
-                        <div className="label_total flex">
-                            <label htmlFor="price">Max price: </label>
-                            <h3 className="total">$500</h3>
-                        </div>
+          <div className="searchOptions flex">
+            <BsSearch className="icon" />
+            <span>Search</span>
+          </div>
+        </div>
 
-                        <div className="input flex">
-                            <input type="range" max="500" min="50" />
-                        </div>
-                    </div>
-
-                    <div className="searchOptions flex">
-                        <BsSearch className="icon" />
-                        <span>Search</span>
-                    </div>
-
-                </div>
-
-                {/* <div data-aos="fade-up" className="homeFooterIcons flex">
+        {/* <div data-aos="fade-up" className="homeFooterIcons flex">
                     <div className="rightIcons">
                         <FiFacebook className="icon" />
                         <AiOutlineInstagram className="icon" />
@@ -86,37 +90,12 @@ const Hero = () => {
                     </div>
 
                 </div> */}
+      </div>
+    </section>
+  );
+};
 
-
-            </div>
-        </section>
-        
-    )
-}
-
-export default Hero
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Hero;
 
 // import React from "react";
 // import "../../styles/component/hero.css";

@@ -9,4 +9,4 @@ import "../styles/home.css";
 import Layout from "./layout.js";
 
 //render your react application
-ReactDOM.render(<Layout />, document.querySelector("#app"));
+ReactDOM.render(<Layout />, document.querySelector("#root"));
