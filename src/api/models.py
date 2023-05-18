@@ -38,7 +38,7 @@ class User(db.Model):
 
 class ValoresDiario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), unique=True)
     calorias_ingeridas = db.Column(db.Integer, unique=False, nullable=False)
     calorias_gastadas = db.Column(db.Integer, unique=False, nullable=False)
     horas_ejercicio = db.Column(db.Integer, unique=False, nullable=False)
@@ -62,7 +62,7 @@ class ValoresDiario(db.Model):
 
 class ValoresMensual(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), unique=True)
     ptos_mes = db.Column(db.String, unique=False, nullable=False)
     hsue_mes = db.Column(db.String, unique=False, nullable=False)
     def __repr__(self):

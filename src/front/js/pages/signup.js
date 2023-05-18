@@ -36,31 +36,8 @@ export const Signup = () => {
       weight: user_weight,
       height: user_height
     });
-    if (response1 != false) {
-      const response2 = await actions.postValoresDiarios({
-        user_id: response1.id,
-        calorias_ingeridas: 0,
-        calorias_gastadas: 0,
-        horas_ejercicio: 0,
-        horas_sueño: 0,
-        scoop_proteina: 0,
-      });
-      if (response2) {
-        if (response2) {
-          const response3 = await actions.postValoresMensuales({
-            user_id: response1.id,
-            ptos_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
-            hsue_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"
-          });
-          if (response3) {
-            navigate("/success");
-          } else {
-            alert("Valores Mensuales no creados");
-          }
-      } else {
-          alert("Valores Diarios no creados");
-        }
-      }
+    if (response1) {
+      navigate("/success");
     } else {
       alert("No se pudo iniciar sesión");
     }
