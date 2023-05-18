@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 
 import "./App.css";
-import ExerciseDetail from "./pages/ExerciseDetail";
-import OnlineHome from "./pages/OnlineHome";
+import ExerciseDetail from "../pages/ExerciseDetail";
+import OnlineHome from "../pages/OnlineHome";
 
 const App = () => {
   return (
