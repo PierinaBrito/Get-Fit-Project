@@ -84,4 +84,9 @@ export const Calculos = () => {
     if (response3 == false) {
         alert("Imposible subir datos Mensuales");
     };
+    actions.calculos({
+        puntos: ptos_total,
+        puntosNegativos: ptos_negativos,
+    })
 };
+export default Calculos;

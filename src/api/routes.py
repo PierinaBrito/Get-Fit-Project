@@ -148,22 +148,20 @@ def online_workout_pva_ind(id_ow):
     return jsonify(online_workout_pva), 200
 
 @api.route('/dia', methods=['POST'])
-@jwt_required()
 def registrar_dia():
+    user_id = request.json.get("user_id", None)
     calorias_ingeridas = request.json.get("calorias_ingeridas", None)
     calorias_gastadas = request.json.get("calorias_gastadas", None)
     horas_ejercicio = request.json.get("horas_ejercicio", None)
     horas_sueño = request.json.get("horas_sueño", None)
     scoop_proteina = request.json.get("scoop_proteina", None)
-    ptos_mes = request.json.get("ptos_mes", None)
-    hsue_mes = request.json.get("hsue_mes", None)
 
-    if calorias_ingeridas is None or calorias_gastadas is None or horas_ejercicio is None or  horas_sueño is None or scoop_proteina is None or ptos_mes is None or hsue_mes is None: 
+    if user_id is None or calorias_ingeridas is None or calorias_gastadas is None or horas_ejercicio is None or  horas_sueño is None or scoop_proteina is None: 
         return jsonify({"msg": "No enough data"}), 400
 
     else:
         try: 
-            dia=ValoresDiario(calorias_ingeridas=calorias_ingeridas, calorias_gastadas=calorias_gastadas, horas_ejercicio=horas_ejercicio, horas_sueño=horas_sueño, scoop_proteina=scoop_proteina, ptos_mes=ptos_mes, hsue_mes=hsue_mes)
+            dia=ValoresDiario(user_id=user_id, calorias_ingeridas=calorias_ingeridas, calorias_gastadas=calorias_gastadas, horas_ejercicio=horas_ejercicio, horas_sueño=horas_sueño, scoop_proteina=scoop_proteina)
             db.session.add(dia)
             db.session.commit()
             return jsonify({"msg": "Dia Registrado"}), 200
@@ -174,7 +172,7 @@ def registrar_dia():
 @api.route('/dia', methods=['GET'])
 @jwt_required()
 def search_dia():
-    get_user = User.query.get(get_jwt_identity())
+    get_user = ValoresDiario.query.get(get_jwt_identity())
     return jsonify(get_user.serialize())
 
 @api.route('/dia', methods=['PUT'])
@@ -185,10 +183,8 @@ def actualizar_dia():
     get_user.horas_ejercicio = request.json.get("horas_ejercicio", get_user.horas_ejercicio)
     get_user.horas_sueño = request.json.get("horas_ejercicio", get_user.horas_sueño)
     get_user.scoop_proteina = request.json.get("scoop_proteina", get_user.scoop_proteina)
-    get_user.ptos_mes = request.json.get("ptos_mes", get_user.ptos_mes)
-    get_user.hsue_mes = request.json.get("hsue_mes", get_user.hsue_mes)
 
-    if get_user.calorias_ingeridas is None or get_user.calorias_gastadas is None or get_user.horas_ejercicio is None or  get_user.horas_sueño is None or get_user.scoop_proteina is None or get_user.ptos_mes is None or get_user.hsue_mes is None: 
+    if get_user.calorias_ingeridas is None or get_user.calorias_gastadas is None or get_user.horas_ejercicio is None or  get_user.horas_sueño is None or get_user.scoop_proteina is None: 
         return jsonify({"msg": "No enough data"}), 400
     else:
         try:
@@ -199,17 +195,17 @@ def actualizar_dia():
             return jsonify({"msg": f"{error.args[0]}"}), 400
 
 @api.route('/mes', methods=['POST'])
-@jwt_required()
 def registrar_mes():
+    user_id = request.json.get("user_id", None)
     ptos_mes = request.json.get("ptos_mes", None)
     hsue_mes = request.json.get("hsue_mes", None)
 
-    if ptos_mes is None or hsue_mes is None: 
+    if user_id is None or ptos_mes is None or hsue_mes is None: 
         return jsonify({"msg": "No enough data"}), 400
 
     else:
         try: 
-            mes=ValoresMensual(ptos_mes=ptos_mes, hsue_mes=hsue_mes)
+            mes=ValoresMensual(user_id=user_id, ptos_mes=ptos_mes, hsue_mes=hsue_mes)
             db.session.add(mes)
             db.session.commit()
             return jsonify({"msg": "Mes Registrado"}), 200
@@ -220,7 +216,8 @@ def registrar_mes():
 @api.route('/mes', methods=['GET'])
 @jwt_required()
 def search_mes():
-    get_user = User.query.get(get_jwt_identity())
+    get_user = ValoresMensual.query.get(get_jwt_identity())
+    print(get_user)
     return jsonify(get_user.serialize())
 
 @api.route('/mes', methods=['PUT'])

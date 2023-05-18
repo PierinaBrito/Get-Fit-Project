@@ -5,7 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       token: sessionStorage.getItem("token") || null,
       user: {},
       valoresDiarios: {},
-      valoresMensuales: {}
+      valoresMensuales: {},
+      calculos: {}
     },
     actions: {
       login: async (email, password) => {
@@ -48,6 +49,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ token: null });
       },
 
+      calculos: (data) => {
+        setStore({ calculos: data });
+      },
+
       signup: async (data) => {
         console.log(data);
         const opts = {
@@ -70,7 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await response.json();
           console.log(data);
-          return data;
+          return true;
         } catch (error) {
           console.log(error);
           return false;
@@ -169,7 +174,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${store.token}`
-          }
+          },
         };
 
         try {
@@ -269,6 +274,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             setStore({
               valoresMensuales: data
             });
+            return true;
           }
         } catch (error) {
           console.log(error);

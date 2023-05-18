@@ -24,7 +24,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
+import Calculos from "../component/calculos.js";
 
 export const Perfil = () => {
   const { store, actions } = useContext(Context);
@@ -37,7 +37,7 @@ export const Perfil = () => {
     datasets: [
       {
         label: "# of Votes",
-        data: [store.puntos, store.puntos_negativo],
+        data: [store.calculos.puntos, store.calculos.puntosNegativos],
         backgroundColor: [
           "rgba(255, 159, 64, 0.2)",
           "rgba(255, 255, 255, 0.2)",
@@ -94,7 +94,7 @@ export const Perfil = () => {
     "1",
     "0",
   ];
-  //const dataPuntosA = store.data_puntos;
+  //const dataPuntosA = store.valoresMensuales.ptos_mes;
   const dataPuntosB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
 
   const dataPuntos = {
@@ -128,7 +128,7 @@ export const Perfil = () => {
     },
   };
 
-  //const dataSuenoA = store.data_sueno;
+  //const dataSuenoA = store.valoresMensuales.hsue_mes;
   const dataSuenoB = ["30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"];
 
   const dataSueno = {
@@ -153,10 +153,28 @@ export const Perfil = () => {
       navigate("/login");
     }
   }, [store.token]);
-
   useEffect(() => {
     actions.read_variable_user();
   },[]);
+  useEffect(() => {
+    actions.postValoresDiarios({
+      user_id: store.user.id,
+      calorias_ingeridas: 0,
+      calorias_gastadas: 0,
+      horas_ejercicio: 0,
+      horas_sueño: 0,
+      scoop_proteina: 0,
+    });
+    actions.readValoresDiarios();
+  },[store.valoresDiarios]);
+  useEffect(() => {
+    actions.postValoresMensuales({
+      user_id: store.user.id,
+      ptos_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+      hsue_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"
+    });
+    actions.readValoresMensuales(store.user.id);
+  },[store.valoresMensuales]);
   return (
     <section>
       <div className="container py-5">
@@ -213,19 +231,19 @@ export const Perfil = () => {
                     <p className="m-0">
                       <i className="fa-solid fa-egg"></i> Calorias Ingeridas
                     </p>
-                    <p className="mb-0">{store.calorias_ingeridas} cal</p>
+                    <p className="mb-0">{store.valoresDiarios.calorias_ingeridas} cal</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <p className="m-0">
                       <i className="fa-solid fa-fire"></i> Calorias Gastadas
                     </p>
-                    <p className="mb-0">{store.alorias_gastadas} cal</p>
+                    <p className="mb-0">{store.valoresDiarios.calorias_gastadas} cal</p>
                   </li>
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
                     <p className="m-0">
                       <i className="fa-solid fa-star"></i> Promedio Puntos
                     </p>
-                    <p className="mb-0">{store.p_puntos} ptos</p>
+                    <p className="mb-0">{store.calculos.puntos} ptos</p>
                   </li>
                 </ul>
               </div>
