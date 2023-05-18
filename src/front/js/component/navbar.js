@@ -61,7 +61,7 @@ const Navbar = ({ props, imageSrc }) => {
               </a>
             </li> */}
             <li className="navItem">
-              <Link className="navLink" to="/">
+              <Link className="navLink" to="/training">
                 Training
               </Link>
             </li>

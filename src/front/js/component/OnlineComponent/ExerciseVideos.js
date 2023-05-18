@@ -7,8 +7,8 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
   if (!exerciseVideos.length) return "Loading...";
 
   return (
-    <Box sx={{ marginTop: { lg: "50px", xs: "5px" } }} p="20px">
-      <Typography variant="h3" mb="33px">
+    <Box sx={{ marginTop: { lg: "50px", xs: "5px" } }} p="5px">
+      <Typography variant="h3" mb="40px">
         Watch{" "}
         <span style={{ color: "#ff2625", textTransform: "capitalize" }}>
           {name}
@@ -34,7 +34,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
               <Typography variant="h5" color="#000">
                 {item.video.title}
               </Typography>
-              <Typography variant="h6" color="#000">
+              <Typography variant="h6" color="#000" mb="5px">
                 {item.video.channelName}
               </Typography>
             </Box>

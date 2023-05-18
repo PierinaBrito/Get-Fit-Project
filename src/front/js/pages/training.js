@@ -10,7 +10,7 @@ export const Training = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="App">
+    <div>
       <Train
         imageSrc={fit_o}
         title={"Online WorkOut"}

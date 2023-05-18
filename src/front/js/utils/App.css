@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:ital,wght@0,800;1,500&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&family=Shadows+Into+Light+Two&family=Source+Sans+Pro:wght@600;700&family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:ital,wght@0,800;1,500&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&family=Shadows+Into+Light+Two&family=Source+Sans+Pro:wght@600;700&family=Titillium+Web&display=swap");
 
 body {
   font-family: "Bruno Ace SC", cursive;
@@ -28,7 +28,7 @@ body {
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
@@ -36,6 +36,7 @@ body {
 
 .right-arrow {
   right: 140px;
+  width: 20px;
 }
 
 .right-arrow:hover,
@@ -55,12 +56,12 @@ body {
 }
 
 .hero-banner-img {
-  position: absolute;
-  right: 40px;
-  top: 0px;
-  width: 700px;
+  /* position: -ms-page;
+  right: -200px;
+  top: 0px; */
+  width: 780px;
   height: 900px;
-  margin-top: -330px;
+  margin-top: -170px;
 }
 
 .exercise-card {
@@ -139,4 +140,4 @@ body {
   .exercise-card {
     width: 280px;
   }
-} */
+}

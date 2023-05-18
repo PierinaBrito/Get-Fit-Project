@@ -50,15 +50,30 @@ const Hero = () => {
             </div>
           </div>
 
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Type Of Training
-          </Dropdown.Toggle>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Type Of Training
+            </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Online Consultation</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Online WorkOut</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">In Person Training</Dropdown.Item>
-          </Dropdown.Menu>
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">
+                Online Consultation
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Online WorkOut</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
+                In Person Training
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          {/* <select className="form-control">
+            <option>
+              Online Consultation
+            </option>
+            <option>
+              
+            </option>
+          </select> */}
 
           {/* <div className="priceInput">
             <div className="label_total flex">

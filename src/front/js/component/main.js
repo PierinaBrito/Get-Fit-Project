@@ -203,7 +203,9 @@ const Main = () => {
             </div>
 
             <button className="btn flex">
-              DETAILS <HiClipboardCheck className="icon" />
+              <Link to="/onlinehome">
+                DETAILS <HiClipboardCheck className="icon" />
+              </Link>
             </button>
           </div>
         </div>

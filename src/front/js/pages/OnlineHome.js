@@ -14,7 +14,7 @@ const OnlineHome = () => {
   return (
     <Box>
       <HeroBanner />
-      {/* <SearchExercises
+      <SearchExercises
         setExercises={setExercises}
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
@@ -23,7 +23,7 @@ const OnlineHome = () => {
         exercises={exercises}
         setExercises={setExercises}
         bodyPart={bodyPart}
-      /> */}
+      />
     </Box>
   );
 };
