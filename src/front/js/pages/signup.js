@@ -23,7 +23,7 @@ export const Signup = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await actions.signup({
+    const response1 = await actions.signup({
       rol: rol,
       email: email,
       id_number: user_id,
@@ -36,10 +36,33 @@ export const Signup = () => {
       weight: user_weight,
       height: user_height
     });
-    if (response) {
-      navigate("/success");
+    if (response1 != false) {
+      const response2 = await actions.postValoresDiarios({
+        user_id: response1.id,
+        calorias_ingeridas: 0,
+        calorias_gastadas: 0,
+        horas_ejercicio: 0,
+        horas_sueño: 0,
+        scoop_proteina: 0,
+      });
+      if (response2) {
+        if (response2) {
+          const response3 = await actions.postValoresMensuales({
+            user_id: response1.id,
+            ptos_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]",
+            hsue_mes: "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"
+          });
+          if (response3) {
+            navigate("/success");
+          } else {
+            alert("Valores Mensuales no creados");
+          }
+      } else {
+          alert("Valores Diarios no creados");
+        }
+      }
     } else {
-      alert("invalid credentials");
+      alert("No se pudo iniciar sesión");
     }
   };
 

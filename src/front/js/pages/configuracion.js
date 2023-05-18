@@ -6,18 +6,16 @@ import "../../styles/pages/signup.css";
 
 export const Configuracion = () => {
   const { store, actions } = useContext(Context);
-  const [edad, setEdad] = useState("");
-  const [peso, setPeso] = useState("");
-  const [estatura, setEstatura] = useState("");
+  const [user_weight, setUser_weight] = useState("");
+  const [user_height, setUser_height] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await actions.configuracion({
-      edad: edad,
-      peso: peso,
-      estatura: estatura
+    const response = await actions.actualizarUsuario({
+      weight: user_weight,
+      height: user_height
     });
     if (response) {
       navigate("/perfil");
@@ -34,21 +32,9 @@ export const Configuracion = () => {
             <h3>Edita tus datos</h3>
             <div className="d-flex flex-wrap">
               <div className="form-group col-md-12">
-                {/* Form Data */}
-                <label htmlFor="edad">Edad</label>
-                <input
-                  onChange={(e) => setEdad(e.target.value)}
-                  type="number"
-                  className="form-control"
-                  id="edad"
-                  placeholder="20 años"
-                />
-              </div>
-
-              <div className="form-group col-md-12">
                 <label htmlFor="peso">Peso</label>
                 <input
-                  onChange={(e) => setPeso(e.target.value)}
+                  onChange={(e) => setUser_weight(e.target.value)}
                   type="number"
                   className="form-control"
                   id="peso"
@@ -59,7 +45,7 @@ export const Configuracion = () => {
               <div className="form-group col-md-12">
                 <label htmlFor="estatura">Estatura</label>
                 <input
-                  onChange={(e) => setEstatura(e.target.value)}
+                  onChange={(e) => setUser_height(e.target.value)}
                   type="number"
                   className="form-control"
                   id="estatura"

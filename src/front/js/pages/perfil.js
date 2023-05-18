@@ -155,7 +155,6 @@ export const Perfil = () => {
   }, [store.token]);
 
   useEffect(() => {
-    console.log("Traigo  usuario");
     actions.read_variable_user();
   },[]);
   return (

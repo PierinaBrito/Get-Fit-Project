@@ -15,13 +15,14 @@ export const Dia = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+
     event.preventDefault();
-    const response = await actions.dia({
+    const response = await actions.actualizarValoresDiarios({
       calorias_ingeridas: calIng,
       calorias_gastadas: calGas,
       horas_ejercicio: hEje,
       horas_sueño: hSue,
-      scoop_proteina: scp
+      scoop_proteina: scp,
     });
     if (response) {
       navigate("/perfil");

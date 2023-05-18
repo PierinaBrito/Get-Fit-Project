@@ -3,7 +3,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       courses: [],
       token: sessionStorage.getItem("token") || null,
-      user: {}, 
+      user: {},
+      valoresDiarios: {},
+      valoresMensuales: {}
     },
     actions: {
       login: async (email, password) => {
@@ -68,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const data = await response.json();
           console.log(data);
-          return true;
+          return data;
         } catch (error) {
           console.log(error);
           return false;
@@ -104,8 +106,36 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      actualizarUsuario: async (data) => {
+        let store = getStore()
+        const opts = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`
+          },
+          body: JSON.stringify(data)
+        };
+        
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/user`,
+            opts
+          );
 
-      dia: async (data) => {
+          if (!response.ok) {
+            console.log(response);
+            return false;
+          }
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+      postValoresDiarios: async (data) => {
         console.log(data);
         const opts = {
           method: "POST",
@@ -132,8 +162,65 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false;
         }
       },
+      readValoresDiarios: async () => {
+        let store = getStore()
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`
+          }
+        };
 
-      configuracion: async (data) => {
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/dia`,
+            opts
+          );
+
+          if (response.ok) {
+            console.log(response);
+            const data = await response.json();
+            setStore({
+              valoresDiarios: data
+            });
+            return true;
+          }
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+      actualizarValoresDiarios: async (data) => {
+        let store = getStore()
+        const opts = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`
+          },
+          body: JSON.stringify(data)
+        };
+        
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/dia`,
+            opts
+          );
+
+          if (!response.ok) {
+            console.log(response);
+            return false;
+          }
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+      postValoresMensuales: async (data) => {
         console.log(data);
         const opts = {
           method: "POST",
@@ -145,9 +232,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/configuracion`,
+            `${process.env.BACKEND_URL}/api/mes`,
             opts
           );
+          if (!response.ok) {
+            console.log(response);
+            return false;
+          }
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+      readValoresMensuales: async () => {
+        let store = getStore()
+        const opts = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`
+          }
+        };
+
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/mes`,
+            opts
+          );
+
+          if (response.ok) {
+            console.log(response);
+            const data = await response.json();
+            setStore({
+              valoresMensuales: data
+            });
+          }
+        } catch (error) {
+          console.log(error);
+          return false;
+        }
+      },
+      actualizarValoresMensuales: async (data) => {
+        let store = getStore()
+        const opts = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${store.token}`
+          },
+          body: JSON.stringify(data)
+        };
+        
+        try {
+          const response = await fetch(
+            `${process.env.BACKEND_URL}/api/mes`,
+            opts
+          );
+
           if (!response.ok) {
             console.log(response);
             return false;

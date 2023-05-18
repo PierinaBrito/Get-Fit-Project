@@ -36,15 +36,45 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Valores(db.Model):
+class ValoresDiario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     calorias_ingeridas = db.Column(db.Integer, unique=False, nullable=False)
     calorias_gastadas = db.Column(db.Integer, unique=False, nullable=False)
     horas_ejercicio = db.Column(db.Integer, unique=False, nullable=False)
     horas_sueño = db.Column(db.Integer, unique=False, nullable=False)
     scoop_proteina = db.Column(db.Integer, unique=False, nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.user_id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "calorias_ingeridas": self.calorias_ingeridas,
+            "calorias_gastadas": self.calorias_gastadas,
+            "horas_ejercicio": self.horas_ejercicio,
+            "horas_sueño": self.horas_sueño,
+            "scoop_proteina": self.scoop_proteina,
+            # do not serialize the password, its a security breach
+        }
+
+class ValoresMensual(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    
+    ptos_mes = db.Column(db.String, unique=False, nullable=False)
+    hsue_mes = db.Column(db.String, unique=False, nullable=False)
+    def __repr__(self):
+        return f'<User {self.user_id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "ptos_mes": self.ptos_mes,
+            "hsue_mes": self.hsue_mes,
+        }
 #class Configue(db.Model):
 #    id = db.Column(db.Integer, primary_key=True)
 #    edad = db.Column(db.Integer, unique=False, nullable=False)
