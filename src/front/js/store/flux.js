@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/login`,
+            `${process.env.BACKEND_URL}/login`,
             opts
           );
           if (!response.ok) {
@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/user`,
+            `${process.env.BACKEND_URL}/user`,
             opts
           );
 
@@ -95,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/user`,
+            `${process.env.BACKEND_URL}/user`,
             opts
           );
 
@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/user`,
+            `${process.env.BACKEND_URL}/user`,
             opts
           );
 
@@ -152,7 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/dia`,
+            `${process.env.BACKEND_URL}/dia`,
             opts
           );
           if (!response.ok) {
@@ -179,7 +179,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/dia`,
+            `${process.env.BACKEND_URL}/dia`,
             opts
           );
 
@@ -209,7 +209,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/dia`,
+            `${process.env.BACKEND_URL}/dia`,
             opts
           );
 
@@ -237,7 +237,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/mes`,
+            `${process.env.BACKEND_URL}/mes`,
             opts
           );
           if (!response.ok) {
@@ -264,7 +264,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/mes`,
+            `${process.env.BACKEND_URL}/mes`,
             opts
           );
 
@@ -294,7 +294,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         try {
           const response = await fetch(
-            `${process.env.BACKEND_URL}/api/mes`,
+            `${process.env.BACKEND_URL}/mes`,
             opts
           );
 
