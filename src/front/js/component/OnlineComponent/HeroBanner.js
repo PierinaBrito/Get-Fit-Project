@@ -16,7 +16,7 @@ const HeroBanner = () => {
     >
       <div className="d-flex">
         <div>
-          <Typography color="#FF2625" fontWeight="600" fontSize="60px">
+          <Typography color="#6ddaea" fontWeight="600" fontSize="60px">
             Online Workout
           </Typography>
           <Typography

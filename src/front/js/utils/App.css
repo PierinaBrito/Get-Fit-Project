@@ -1,8 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:ital,wght@0,800;1,500&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&family=Shadows+Into+Light+Two&family=Source+Sans+Pro:wght@600;700&family=Titillium+Web&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat:ital,wght@0,800;1,500&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&family=Shadows+Into+Light+Two&family=Source+Sans+Pro:wght@600;700&family=Titillium+Web&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Gruppo&family=Michroma&family=Montserrat:ital,wght@0,800;1,500&family=Outfit:wght@300;400;500;700&family=Permanent+Marker&family=Shadows+Into+Light+Two&family=Source+Sans+Pro:wght@600;700&family=Titillium+Web&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Bruno Ace SC", cursive;
+}
+
+/* Color and Styling */
+
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradienteColor: linear-gradient(
+    to right,
+    hsl(187, 85%, 43%),
+    hsl(199, 100%, 33%)
+  );
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 240);
+  --cardBG: rgb(225, 225, 235);
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Bruno Ace SC", cursive;
-  background: #fffafb;
+  background: #f1f1f1;
 }
 
 * {
@@ -68,7 +101,7 @@ body {
   width: 400px;
   height: 445px;
   background: #fff;
-  border-top: 4px solid #ff2625;
+  border-top: 4px solid #1ec1d9;
   border-bottom-left-radius: 20px;
   text-decoration: none;
   display: flex;
@@ -94,8 +127,8 @@ body {
 }
 
 .search-btn:hover {
-  color: #ff2625 !important;
-  border: 1px solid #ff2625 !important;
+  color: #1ec1d9 !important;
+  border: 1px solid #1ec1d9 !important;
 }
 
 .exercise-video {
