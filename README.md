@@ -1,4 +1,4 @@
-https://sample-service-name-aw5j.onrender.com/
+Check this project live here: https://sample-service-name-aw5j.onrender.com/
 
 
 ![Screenshot 2024-03-19 170004](https://github.com/PierinaBrito/Get-Fit-Project/assets/77765628/da6b50f1-b989-411a-98bf-aeaa45483b53)
